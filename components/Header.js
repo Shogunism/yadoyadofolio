@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const Header = () => (
   <header style={{ textAlign: 'center', padding: '20px' }}>
-    <Image src="/header.jpeg" alt="Header" width={600} height={150} />
+    <Image src="/header.png" alt="Header" width={600} height={150} />
   </header>
 );
 

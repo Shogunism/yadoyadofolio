@@ -3,8 +3,8 @@ import { useState } from 'react';
 
 const ImageGallery = () => {
   const [images] = useState([
-    '/images/image1.jpeg',
-    '/images/image2.jpeg',
+    '/images/image1.png',
+    '/images/image2.png',
 
     // 他の画像を追加
   ]);
