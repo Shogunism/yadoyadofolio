@@ -7,12 +7,16 @@ html, body {
   background-color: #121212; /* 背景色 */
   color: white; /* 文字色 */
   margin: 0; /* body の余白を削除 */
+  display: flex; /* Flexbox を使ってレイアウトを調整 */
+  flex-direction: column; /* コンテンツを縦方向に配置 */
 }
 
-/* もしフッターを下部に固定したい場合は、以下のように変更できます */
-body {
-  /* display: flex; */  /* この行を削除 */
-  /* flex-direction: column; */ /* この行を削除 */
-  /* justify-content: space-between; */ /* この行を削除 */
-  /* margin: 0; */ /* この行は残しておく */
+/* メインコンテンツとフッターのレイアウト */
+body > main {
+  flex: 1; /* メインコンテンツが残りの空間を占めるようにする */
+}
+
+/* フッターの固定 */
+footer {
+  margin-top: auto; /* フッターをページ下部に配置 */
 }
