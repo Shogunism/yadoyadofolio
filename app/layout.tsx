@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 // global.css のパスが間違っているので修正
 import "../styles/globals.css";  // 正しいパスに修正
-import styles from "../styles/page.module.css";  // 正しいパスに修正
 //メモ
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
