@@ -49,7 +49,7 @@ export default function Home() {
               className={styles.galleryItem}
               onClick={() => setSelectedImage(image)}
             >
-              <Image src={image.src} alt={image.title} width={200} height={200} />
+              <Image src={image.src} alt={image.title} width={300} height={300} />
             </div>
           ))}
         </section>
