@@ -1,45 +1,19 @@
-/* ヘッダー */
-.header {
-  width: 100%;
-  height: 40vh;
-  background-image: url('/header.png');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-/* メインコンテンツ */
-.mainContent {
-  padding: 20px;
-  background-color: #121212;
-  overflow-y: auto;
-  height: calc(100vh - 40vh - 50px); /* ヘッダーとフッター分を差し引く */
-}
-
-/* ギャラリー */
+/* Gallery */
 .gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
 }
 
-/* ギャラリーアイテム */
 .galleryItem {
   width: 200px;
   height: 200px;
-  background-color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
   cursor: pointer;
 }
 
@@ -48,30 +22,7 @@
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* フッター */
-.footer {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  text-align: center;
-  color: #fff;
-  background-color: #121212;
-  padding: 10px 0;
-}
-
-.footer a {
-  margin: 0 10px;
-}
-
-.footer a.twitter {
-  color: #1DA1F2;
-}
-
-.footer a.instagram {
-  color: #E4405F;
-}
-
-/* モーダル全体 */
+/* Modal */
 .modal {
   position: fixed;
   top: 0;
@@ -81,62 +32,64 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.8); /* 背景を透過黒に設定 */
   z-index: 1000;
 }
 
-/* 背景を暗くする要素 */
 .modalBackdrop {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* 背景を暗くする */
-  z-index: 1;
+  background: transparent;
+  z-index: 999;
 }
 
-/* モーダルのコンテンツ */
 .modalContent {
   position: relative;
-  z-index: 2;
-  width: 80%;
-  max-width: 600px;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 0;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.0); /* 背景を透過黒に変更 */
 }
 
-/* キャプション */
-.modalCaption {
-  text-align: center;
-  color: #fff;
-  margin-top: 10px;
+.modalContent img {
+  border-radius: 8px; /* 画像の角を丸める */
 }
 
 .modalCaption h3 {
-  margin: 0;
-  font-size: 1.5rem;
+  margin: 10px 0;
+  font-size: 18px;
+  color: white; /* タイトルの色を白に固定 */
 }
 
 .modalCaption p {
-  margin: 0;
-  font-size: 1rem;
+  margin: 5px 0;
+  font-size: 14px;
+  color: white; /* 説明文やエンジンなどの文字色を白に統一 */
 }
 
-/* 戻るボタン */
 .closeButton {
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: #333;
+  background: gray;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .closeButton:hover {
-  background-color: #555;
+  background: #0056b3;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  padding: 10px 0;
 }

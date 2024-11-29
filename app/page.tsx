@@ -3,41 +3,51 @@
 import Image from "next/image";
 import { useState } from "react";
 import styles from "../styles/page.module.css";
+import SocialMediaWidgets from "../components/SocialMediaWidgets";
+
+type ImageData = {
+  src: string;
+  title: string;
+  description: string;
+  engine?: string;
+  real_location?: string;
+};
 
 export default function Home() {
-  const [selectedImage, setSelectedImage] = useState<{
-    src: string;
-    title: string;
-    description: string;
-  } | null>(null);
+  const [selectedImage, setSelectedImage] = useState<ImageData | null>(null);
 
-  const images = [
-    { src: "/images/image1.png", title: "Image 1", description: "Description for Image 1" },
-    { src: "/images/image2.png", title: "Image 2", description: "Description for Image 2" },
-    // 必要に応じて画像を追加
+  const images: ImageData[] = [
+    {
+      src: "/images/image1.png",
+      title: "emCAMPUS豊橋/まちなか図書館",
+      description:
+        "駅前大通の新しいシンボルの一つです。低層階の煌びやかな照明が街を年中ライトアップさせ、人々を寄せ付けます。",
+      engine: "Blender",
+      real_location: "豊橋駅前",
+    },
+    {
+      src: "/images/image2.png",
+      title: "Image 2",
+      description: "Description for Image 2",
+    },
+    {
+      src: "/images/image3.png",
+      title: "Image 3",
+      description: "Description for Image 3",
+    },
   ];
-
-  const openImage = (image: { src: string; title: string; description: string }) =>
-    setSelectedImage(image);
 
   const closeImage = () => setSelectedImage(null);
 
   return (
     <div>
-      {/* ヘッダー */}
-      <header className={styles.header}>
-        <h1>Minecraft豊橋再現</h1>
-        <p>created by : yadoyado</p>
-      </header>
-
-      {/* メインコンテンツ */}
       <main className={styles.mainContent}>
         <section className={styles.gallery}>
           {images.map((image, index) => (
             <div
               key={index}
               className={styles.galleryItem}
-              onClick={() => openImage(image)}
+              onClick={() => setSelectedImage(image)}
             >
               <Image src={image.src} alt={image.title} width={200} height={200} />
             </div>
@@ -45,7 +55,6 @@ export default function Home() {
         </section>
       </main>
 
-      {/* モーダル */}
       {selectedImage && (
         <div className={styles.modal}>
           <div className={styles.modalBackdrop} onClick={closeImage}></div>
@@ -60,6 +69,10 @@ export default function Home() {
             <div className={styles.modalCaption}>
               <h3>{selectedImage.title}</h3>
               <p>{selectedImage.description}</p>
+              {selectedImage.engine && <p><strong>Engine:</strong> {selectedImage.engine}</p>}
+              {selectedImage.real_location && (
+                <p><strong>Real Location:</strong> {selectedImage.real_location}</p>
+              )}
             </div>
             <button className={styles.closeButton} onClick={closeImage}>
               戻る
@@ -68,17 +81,10 @@ export default function Home() {
         </div>
       )}
 
-      {/* フッター */}
+      <SocialMediaWidgets />
+
       <footer className={styles.footer}>
-        <p>Follow me:</p>
-        <div>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className={styles.twitter}>
-            Twitter
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.instagram}>
-            Instagram
-          </a>
-        </div>
+        © 2024 Yadoyado. All Rights Reserved.
       </footer>
     </div>
   );

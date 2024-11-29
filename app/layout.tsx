@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
 import localFont from "next/font/local";
-import "../styles/globals.css";  // グローバルCSSをインポート
+import "../styles/globals.css"; // グローバルCSS
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -13,21 +15,44 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata: Metadata = {
-  title: "Minecraft豊橋再現",  // ポップアップタイトルを変更
-  description: "「やどやど」による建築再現のポートフォリオ/紹介サイト ",  // ポップアップ説明を変更
-};
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const [isDarkTheme, setIsDarkTheme] = useState(false); // テーマ状態を管理
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+  const toggleTheme = () => {
+    setIsDarkTheme((prevTheme) => !prevTheme); // トグルでテーマを切り替え
+  };
+
   return (
-    <html lang="ja">  {/* 日本語に変更 */}
+    <html lang="ja">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased ${
+          isDarkTheme ? "darkTheme" : "lightTheme"
+        }`}
       >
+        <header
+          className="header"
+          style={{
+            backgroundImage: isDarkTheme
+              ? "url('/header_dark.png')" // ダークテーマの背景画像
+              : "url('/header_white.png')", // ホワイトテーマの背景画像
+          }}
+        >
+          <h1>Minecraft豊橋再現</h1>
+          <p>created by : yadoyado</p>
+
+          {/* おしゃれなトグルスイッチ */}
+          <div className="theme-switcher">
+            <span className="theme-icon sun">🌞</span>
+            <div className="theme-toggle" onClick={toggleTheme}>
+              <div
+                className={`theme-toggle-circle ${
+                  isDarkTheme ? "dark" : "light"
+                }`}
+              ></div>
+            </div>
+            <span className="theme-icon moon">🌙</span>
+          </div>
+        </header>
         {children}
       </body>
     </html>
