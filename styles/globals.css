@@ -99,3 +99,21 @@ main {
 .theme-toggle-circle.dark {
   transform: translateX(25px);
 }
+
+/* Header Title */
+.Header_Title {
+  color: white; /* 常に白色 */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* 背景と区別できる陰影を追加 */
+  font-size: 2.5rem; /* タイトルのフォントサイズ */
+  margin-bottom: 10px; /* タイトルと作成者名の間に余白を追加 */
+  text-align: center; /* 中央揃え */
+}
+
+/* Header Creator */
+.Header_creator {
+  color: white; /* 常に白色 */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* 背景と区別できる陰影を追加 */
+  font-size: 1rem; /* 作成者名のフォントサイズ */
+  margin: 0; /* 余白を調整 */
+  text-align: center; /* 中央揃え */
+}

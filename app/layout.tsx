@@ -37,8 +37,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               : "url('/header_white.png')", // ホワイトテーマの背景画像
           }}
         >
-          <h1>Minecraft豊橋再現</h1>
-          <p>created by : yadoyado</p>
+          <h1 className="Header_Title">Minecraft豊橋再現</h1>
+          <p className="Header_creator">created by : yadoyado</p>
 
           {/* おしゃれなトグルスイッチ */}
           <div className="theme-switcher">

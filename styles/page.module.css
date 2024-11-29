@@ -22,6 +22,8 @@
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
 }
 
+
+
 /* Modal */
 .modal {
   position: fixed;
@@ -50,7 +52,7 @@
   position: relative;
   padding: 20px;
   border-radius: 8px;
-  z-index: 0;
+  z-index: 1000;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.0); /* 背景を透過黒に変更 */
 }
@@ -93,3 +95,4 @@
   text-align: center;
   padding: 10px 0;
 }
+
