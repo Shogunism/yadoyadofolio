@@ -59,21 +59,34 @@ export default function Home() {
         <div className={styles.modal}>
           <div className={styles.modalBackdrop} onClick={closeImage}></div>
           <div className={styles.modalContent}>
-            <Image
-              src={selectedImage.src}
-              alt={selectedImage.title}
-              width={600}
-              height={400}
-              style={{ objectFit: "contain" }}
-            />
+            {/* 画像部分 */}
+            <div className={styles.modalImageContainer}>
+              <Image
+                src={selectedImage.src}
+                alt={selectedImage.title}
+                width={600}
+                height={400}
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+
+            {/* テキスト部分 */}
             <div className={styles.modalCaption}>
               <h3>{selectedImage.title}</h3>
               <p>{selectedImage.description}</p>
-              {selectedImage.engine && <p><strong>Engine:</strong> {selectedImage.engine}</p>}
+              {selectedImage.engine && (
+                <p>
+                  <strong>Engine:</strong> {selectedImage.engine}
+                </p>
+              )}
               {selectedImage.real_location && (
-                <p><strong>Real Location:</strong> {selectedImage.real_location}</p>
+                <p>
+                  <strong>Real Location:</strong> {selectedImage.real_location}
+                </p>
               )}
             </div>
+
+            {/* 閉じるボタン */}
             <button className={styles.closeButton} onClick={closeImage}>
               戻る
             </button>

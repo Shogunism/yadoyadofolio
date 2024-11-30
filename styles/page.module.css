@@ -34,43 +34,51 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8); /* 背景を透過黒に設定 */
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 1000;
-}
-
-.modalBackdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  z-index: 999;
 }
 
 .modalContent {
-  position: relative;
+  display: flex; /* フレックスレイアウトで画像とテキストを分離 */
+  flex-direction: column; /* デフォルトは縦配置 */
+  align-items: center;
+  max-width: 90%; /* モーダルの最大幅 */
+  max-height: 90%; /* モーダルの最大高さ */
   padding: 20px;
   border-radius: 8px;
-  z-index: 1000;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.0); /* 背景を透過黒に変更 */
+  background-color: rgba(0, 0, 0, 0); /* 背景を透過黒に設定 */
+  box-sizing: border-box;
+  overflow: auto; /* 内容が多い場合にスクロール可能にする */
 }
 
-.modalContent img {
-  border-radius: 8px; /* 画像の角を丸める */
+.modalImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%; /* コンテナの幅を制限 */
+  max-height: 70vh; /* 画面高さの70%まで */
+}
+
+.modalImageContainer img {
+  max-width: 100%; /* 画像がコンテナを超えないようにする */
+  max-height: 100%; /* 高さもコンテナ内に収める */
+  object-fit: contain; /* 画像の縦横比を保つ */
+  border-radius: 8px;
+}
+
+.modalCaption {
+  margin-top: 20px;
+  text-align: center;
+  color: white;
 }
 
 .modalCaption h3 {
-  margin: 10px 0;
   font-size: 18px;
-  color: white; /* タイトルの色を白に固定 */
 }
 
 .modalCaption p {
-  margin: 5px 0;
   font-size: 14px;
-  color: white; /* 説明文やエンジンなどの文字色を白に統一 */
+  line-height: 1.5;
 }
 
 .closeButton {
@@ -85,14 +93,5 @@
 
 .closeButton:hover {
   background: #0056b3;
-}
-
-/* Footer */
-.footer {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  text-align: center;
-  padding: 10px 0;
 }
 

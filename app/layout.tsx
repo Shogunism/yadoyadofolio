@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         >
           <h1 className="Header_Title">Minecraft豊橋再現</h1>
-          <p className="Header_creator">created by : yadoyado</p>
+          <p className="Header_creator">created by : shogun</p>
 
           {/* おしゃれなトグルスイッチ */}
           <div className="theme-switcher">

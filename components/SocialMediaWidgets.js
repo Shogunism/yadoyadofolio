@@ -14,7 +14,7 @@ const SocialMediaWidgets = () => (
     <h3 style={{ margin: '0 0 10px' }}>Follow Me</h3>
     <div style={{ marginBottom: '5px' }}>
       <a 
-        href="https://twitter.com/Yadoyadodayo" 
+        href="https://twitter.com" 
         target="_blank" 
         rel="noopener noreferrer" 
         style={{ color: '#1DA1F2', textDecoration: 'none' }}
@@ -24,7 +24,7 @@ const SocialMediaWidgets = () => (
     </div>
     <div>
       <a 
-        href="https://www.instagram.com/yadoyadodayo/" 
+        href="https://www.instagram.com/" 
         target="_blank" 
         rel="noopener noreferrer" 
         style={{ color: '#E4405F', textDecoration: 'none' }}
