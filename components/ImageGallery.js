@@ -14,7 +14,6 @@ const ImageGallery = () => {
     '/images/image9.png',
     '/images/image10.png',
     '/images/image11.png',
-    '/images/image12.png',
 
     
   ]);
