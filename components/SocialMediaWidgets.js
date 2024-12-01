@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
+
 const SocialMediaWidgets = () => {
   const [isVisible, setIsVisible] = useState(false);
 
