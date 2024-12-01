@@ -1,4 +1,3 @@
-/* グローバルスタイル */
 html,
 body {
   height: 100%;
@@ -12,14 +11,13 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  transition: background-color 0.5s ease, color 0.5s ease; /* 背景色のスムーズな切り替え */
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 main {
   flex: 1;
 }
 
-/* ヘッダー画像のフェードイン・フェードアウト */
 .header-image {
   position: absolute;
   top: 0;
@@ -28,25 +26,22 @@ main {
   height: 100%;
   transition: opacity 0.5s ease-in-out;
   will-change: opacity;
-  z-index: -1; /* 背景画像を後ろに配置 */
+  z-index: -1;
 }
 
-/* 画像のオプション */
 .header-image img {
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
 
-/* ヘッダーコンテンツ */
 .header-content {
-  position: relative; /* コンテンツを背景画像より前面に */
-  z-index: 1; /* 背景より上のレイヤーに配置 */
-  text-align: center; /* 中央揃え */
-  color: inherit; /* テーマの色を引き継ぐ */
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: inherit;
 }
 
-/* テーマスタイル */
 .darkTheme {
   background-color: #121212;
   color: #ffffff;
@@ -57,7 +52,6 @@ main {
   color: #000000;
 }
 
-/* ヘッダー */
 .header {
   text-align: center;
   margin: 20px 0;
@@ -67,13 +61,11 @@ main {
   color: inherit;
   background-size: cover;
   background-position: center;
-  transition: background-image 0.5s ease; /* 背景画像の切り替えもスムーズに */
 }
 
-/* トグルスイッチ */
 .theme-switcher {
   position: absolute;
-  top: 10px;
+  top: -70px;
   right: 10px;
   display: flex;
   align-items: center;
@@ -89,7 +81,6 @@ main {
   transition: color 0.3s ease;
 }
 
-/* トグル本体 */
 .theme-toggle {
   position: relative;
   width: 50px;
@@ -107,52 +98,40 @@ main {
 .theme-toggle-circle {
   position: absolute;
   top: 2px;
-  left: 2px;
+  left: calc(100% - 23px);
   width: 21px;
   height: 21px;
   background: #ffffff;
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, left 0.3s ease;
 }
 
-/* ダークテーマ時に円が右へ移動 */
 .theme-toggle-circle.dark {
-  transform: translateX(25px);
+  left: 2px;
 }
 
-/* Header Title */
 .Header_Title {
-  color: white; /* 常に白色 */
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* 背景と区別できる陰影を追加 */
-  font-size: 2.5rem; /* タイトルのフォントサイズ */
-  margin-bottom: 10px; /* タイトルと作成者名の間に余白を追加 */
-  text-align: center; /* 中央揃え */
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-/* Header Creator */
 .Header_creator {
-  color: white; /* 常に白色 */
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* 背景と区別できる陰影を追加 */
-  font-size: 1rem; /* 作成者名のフォントサイズ */
-  margin: 0; /* 余白を調整 */
-  text-align: center; /* 中央揃え */
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  font-size: 1rem;
+  margin: 0;
+  text-align: center;
 }
 
-/* トグルスイッチ */
 .theme-switcher {
-  position: absolute;
-  top: -70px; /* ヘッダーの上部に固定 */
-  right: 0px; /* ヘッダーの右端に固定 */
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 20px;
-  z-index: 10; /* ヘッダー背景画像の上に表示 */
 }
-
 
 .theme-icon {
   width: 24px;
@@ -161,6 +140,6 @@ main {
 }
 
 .theme-icon.active {
-  transform: scale(1.2); /* 強調表示として少し大きくする */
-  opacity: 1; /* 強調表示時の透明度 */
+  transform: scale(1.2);
+  opacity: 1;
 }

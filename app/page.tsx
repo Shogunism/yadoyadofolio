@@ -79,7 +79,10 @@ export default function Home() {
     },
   ];
 
-  const closeImage = () => setSelectedImage(null);
+  const closeImage = () => {
+    setSelectedImage(null);
+    document.body.style.overflow = "auto"; // 修正: スクロール再開
+  };
 
   return (
     <div>
@@ -89,7 +92,10 @@ export default function Home() {
             <div
               key={index}
               className={styles.galleryItem}
-              onClick={() => setSelectedImage(image)}
+              onClick={() => {
+                setSelectedImage(image);
+                document.body.style.overflow = "hidden"; // 修正: スクロール防止
+              }}
             >
               <Image src={image.src} alt={image.title} width={300} height={300} />
             </div>
@@ -112,21 +118,11 @@ export default function Home() {
             </div>
             <div className={styles.modalCaption}>
               <h3>{selectedImage.title}</h3>
-              <p className={styles.description}>{selectedImage.description}</p>
-              {selectedImage.engine && (
-                <p>
-                  <strong>Engine:</strong> {selectedImage.engine}
-                </p>
-              )}
-              {selectedImage.real_location && (
-                <p>
-                  <strong>Real Location:</strong> {selectedImage.real_location}
-                </p>
-              )}
+              <p>{selectedImage.description}</p>
+              {selectedImage.engine && <p><strong>Engine:</strong> {selectedImage.engine}</p>}
+              {selectedImage.real_location && <p><strong>Real Location:</strong> {selectedImage.real_location}</p>}
             </div>
-            <button className={styles.closeButton} onClick={closeImage}>
-              戻る
-            </button>
+            <button className={styles.closeButton} onClick={closeImage}>戻る</button>
           </div>
         </div>
       )}
