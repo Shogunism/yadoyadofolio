@@ -1,9 +1,9 @@
-/* Gallery */
+/* ギャラリー */
 .gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 20px; /* サムネイル間のスペース */
 }
 
 .galleryItem {
@@ -12,19 +12,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  border-radius: 8px; /* 角丸 */
+  transition: transform 0.5s ease, box-shadow 0.5s ease; /* アニメーション */
   cursor: pointer;
+  aspect-ratio: 1 / 1; /* 縦横比を1:1に設定 */
+  overflow: hidden; /* 画像が枠を超えないようにする */
 }
 
 .galleryItem:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05); /* ホバー時の拡大 */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* ホバー時のシャドウ */
 }
 
+.galleryItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 画像を枠内で切り抜く */
+  border-radius: 8px; /* 角丸 */
+}
 
-
-/* Modal */
+/* モーダル */
 .modal {
   position: fixed;
   top: 0;
@@ -34,42 +41,45 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8); /* 背景を暗く */
+  z-index: 1000; /* モーダルの最前面表示 */
 }
 
 .modalContent {
-  display: flex; /* フレックスレイアウトで画像とテキストを分離 */
-  flex-direction: column; /* デフォルトは縦配置 */
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  max-width: 90%; /* モーダルの最大幅 */
-  max-height: 90%; /* モーダルの最大高さ */
+  max-width: 90%; /* 最大幅90% */
+  max-height: 90%; /* 最大高さ90% */
   padding: 20px;
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0); /* 背景を透過黒に設定 */
+  border-radius: 8px; /* 角丸 */
+  background-color: rgba(0, 0, 0, 0); /* 背景透過 */
   box-sizing: border-box;
-  overflow: auto; /* 内容が多い場合にスクロール可能にする */
+  overflow: auto; /* 内容がオーバーフローしないように */
 }
 
 .modalImageContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 100%; /* コンテナの幅を制限 */
-  max-height: 70vh; /* 画面高さの70%まで */
+  max-width: 100%;
+  max-height: 70vh; /* 高さの最大値を70vhに設定 */
 }
 
 .modalImageContainer img {
-  max-width: 100%; /* 画像がコンテナを超えないようにする */
-  max-height: 100%; /* 高さもコンテナ内に収める */
-  object-fit: contain; /* 画像の縦横比を保つ */
-  border-radius: 8px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* 画像を縮小して枠内に収める */
+  border-radius: 8px; /* 角丸 */
 }
 
 .modalCaption {
   margin-top: 20px;
   text-align: center;
   color: white;
+  max-width: 600px; /* 最大幅600px */
+  margin: 0 auto; /* 中央揃え */
+  line-height: 1.5; /* 行間 */
 }
 
 .modalCaption h3 {
@@ -78,7 +88,6 @@
 
 .modalCaption p {
   font-size: 14px;
-  line-height: 1.5;
 }
 
 .closeButton {
@@ -92,6 +101,14 @@
 }
 
 .closeButton:hover {
-  background: #0056b3;
+  background: #005699; /* ホバー時の背景色 */
 }
 
+/* モーダル内のキャプションと閉じるボタン */
+.modalCaption {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.5;
+  color: #fff;
+}

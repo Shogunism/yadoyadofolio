@@ -35,6 +35,7 @@ main {
   text-align: center;
   margin: 20px 0;
   position: relative;
+  min-height: 200px;
   padding: 60px 20px;
   color: inherit;
   background-size: cover;
@@ -61,13 +62,7 @@ main {
   transition: color 0.3s ease;
 }
 
-.lightTheme .theme-icon.sun {
-  color: gold;
-}
 
-.darkTheme .theme-icon.moon {
-  color: #f5e042;
-}
 
 /* トグル本体 */
 .theme-toggle {
@@ -116,4 +111,21 @@ main {
   font-size: 1rem; /* 作成者名のフォントサイズ */
   margin: 0; /* 余白を調整 */
   text-align: center; /* 中央揃え */
+}
+
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* アイコンとトグルの間隔 */
+}
+
+.theme-icon {
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.theme-icon.active {
+  transform: scale(1.2); /* 強調表示として少し大きくする */
+  opacity: 1; /* 強調表示時の透明度 */
 }
