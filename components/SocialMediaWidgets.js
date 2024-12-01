@@ -7,7 +7,7 @@ const SocialMediaWidgets = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsVisible(true);
+      setIsVisible(true); // 1秒後に表示状態にする
     }, 1000);
     return () => clearTimeout(timer); 
   }, []);

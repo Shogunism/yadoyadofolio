@@ -1,8 +1,11 @@
 "use client";
 
+
 import { useState } from "react";
 import localFont from "next/font/local";
 import "../styles/globals.css"; // グローバルCSS
+import "@fortawesome/fontawesome-svg-core/styles.css"; 
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
