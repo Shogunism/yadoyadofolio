@@ -45,8 +45,8 @@ export default function RootLayout({
           content="Minecraftで豊橋を再現したプロジェクトの公式ウェブサイト。"
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yadoportfolio.vercel.app" />
-        <meta property="og:image" content="https://yadoportfolio.vercel.app/thumbnail.png" />
+        <meta property="og:url" content="https://yadoyadoportfolio.vercel.app/thumbnail.png" />
+        <meta property="og:image" content="https://yadoyadoportfolio.vercel.app/thumbnail.png" />
         <meta property="og:site_name" content="Minecraft豊橋再現" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Minecraft豊橋再現" />
@@ -56,7 +56,7 @@ export default function RootLayout({
         />
         <meta
           name="twitter:image"
-          content="https://yadoportfolio.vercel.app/thumbnail.png"
+          content="https://yadoyadoportfolio.vercel.app/thumbnail.png"
         />
         <meta
           name="theme-color"
