@@ -26,8 +26,7 @@ export default function RootLayout({
   const [isDarkTheme, setIsDarkTheme] = useState(true);
 
   const toggleTheme = () => {
-    setIsDarkTheme((prevTheme) => !prevTheme);
-    document.body.style.overflow = isDarkTheme ? "auto" : "hidden";
+    setIsDarkTheme((prevTheme) => !prevTheme); // テーマ切り替え
   };
 
   return (
@@ -46,8 +45,8 @@ export default function RootLayout({
           content="Minecraftで豊橋を再現したプロジェクトの公式ウェブサイト。"
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://example.com" />
-        <meta property="og:image" content="https://example.com/og_image.png" />
+        <meta property="og:url" content="https://yadoportfolio.vercel.app" />
+        <meta property="og:image" content="https://yadoportfolio.vercel.app/thumbnail.png" />
         <meta property="og:site_name" content="Minecraft豊橋再現" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Minecraft豊橋再現" />
@@ -57,7 +56,7 @@ export default function RootLayout({
         />
         <meta
           name="twitter:image"
-          content="https://example.com/twitter_image.png"
+          content="https://yadoportfolio.vercel.app/thumbnail.png"
         />
         <meta
           name="theme-color"
@@ -72,12 +71,28 @@ export default function RootLayout({
         }`}
       >
         <header className="header">
-          <div className={`header-image ${isDarkTheme ? "dark" : "light"}`}>
+          <div className="header-images">
             <Image
-              src={isDarkTheme ? "/header_dark.png" : "/header_white.png"}
-              alt="Header Background"
+              src="/header_dark.png"
+              alt="Dark Header"
               layout="fill"
-              style={{ objectFit: "cover", willChange: "opacity" }}
+              style={{
+                objectFit: "cover",
+                opacity: isDarkTheme ? 1 : 0,
+                transition: "opacity 0.5s ease-in-out",
+              }}
+              quality={100}
+              priority
+            />
+            <Image
+              src="/header_white.png"
+              alt="White Header"
+              layout="fill"
+              style={{
+                objectFit: "cover",
+                opacity: isDarkTheme ? 0 : 1,
+                transition: "opacity 0.5s ease-in-out",
+              }}
               quality={100}
               priority
             />
