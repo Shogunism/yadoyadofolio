@@ -35,8 +35,8 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
-          name="description"
-          content="Minecraftで豊橋を再現したプロジェクトの公式ウェブサイト。"
+    name="description"
+    content="Minecraftで豊橋を再現したプロジェクトの公式ウェブサイト。"
         />
         <meta name="author" content="yadoyado" />
         <meta property="og:title" content="Minecraft豊橋再現" />
@@ -45,8 +45,11 @@ export default function RootLayout({
           content="Minecraftで豊橋を再現したプロジェクトの公式ウェブサイト。"
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yadoyadoportfolio.vercel.app/thumbnail.png" />
-        <meta property="og:image" content="https://yadoyadoportfolio.vercel.app/thumbnail.png" />
+        <meta property="og:url" content="https://yadoyadoportfolio.vercel.app/" />
+        <meta
+          property="og:image"
+          content="https://yadoyadoportfolio.vercel.app/thumbnail.png"
+        />
         <meta property="og:site_name" content="Minecraft豊橋再現" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Minecraft豊橋再現" />
@@ -54,17 +57,15 @@ export default function RootLayout({
           name="twitter:description"
           content="Minecraftで豊橋を再現したプロジェクトの公式ウェブサイト。"
         />
-        <meta
+        <meta 
           name="twitter:image"
           content="https://yadoyadoportfolio.vercel.app/thumbnail.png"
         />
-        <meta
-          name="theme-color"
-          content={isDarkTheme ? "#121212" : "#ffffff"}
-        />
+        <meta name="theme-color" content="#121212" />
         <link rel="icon" href="/favicon.ico" />
         <title>Minecraft豊橋再現</title>
-      </Head>
+</Head>
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased ${
           isDarkTheme ? "darkTheme" : "lightTheme"
@@ -75,7 +76,7 @@ export default function RootLayout({
             <Image
               src="/header_dark.png"
               alt="Dark Header"
-              layout="fill"
+              fill
               style={{
                 objectFit: "cover",
                 opacity: isDarkTheme ? 1 : 0,
@@ -87,7 +88,7 @@ export default function RootLayout({
             <Image
               src="/header_white.png"
               alt="White Header"
-              layout="fill"
+              fill
               style={{
                 objectFit: "cover",
                 opacity: isDarkTheme ? 0 : 1,
@@ -120,7 +121,7 @@ export default function RootLayout({
                 src="/theme/sun.svg"
                 alt="Sun Icon"
                 className={`theme-icon ${!isDarkTheme ? "active" : ""}`}
-                onClick={() => (!isDarkTheme ? undefined : toggleTheme())}
+                onClick={toggleTheme}
                 width={24}
                 height={24}
               />
