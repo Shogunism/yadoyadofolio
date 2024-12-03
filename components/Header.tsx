@@ -52,9 +52,7 @@ export default function Header() {
           />
           <div className="theme-toggle" onClick={toggleTheme}>
             <div
-              className={`theme-toggle-circle ${
-                isDarkTheme ? "dark" : "light"
-              }`}
+              className={`theme-toggle-circle ${isDarkTheme ? "dark" : "light"}`}
             ></div>
           </div>
           <Image
