@@ -26,7 +26,7 @@ export default function RootLayout({
   const [isDarkTheme, setIsDarkTheme] = useState(true);
 
   const toggleTheme = () => {
-    setIsDarkTheme((prevTheme) => !prevTheme); // テーマ切り替え
+    setIsDarkTheme((prevTheme) => !prevTheme);
   };
 
   return (
@@ -35,8 +35,8 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
-    name="description"
-    content="Minecraftで豊橋を再現したプロジェクトの公式ウェブサイト。"
+          name="description"
+          content="Minecraftで豊橋を再現したプロジェクトの公式ウェブサイト。"
         />
         <meta name="author" content="yadoyado" />
         <meta property="og:title" content="Minecraft豊橋再現" />
@@ -57,15 +57,14 @@ export default function RootLayout({
           name="twitter:description"
           content="Minecraftで豊橋を再現したプロジェクトの公式ウェブサイト。"
         />
-        <meta 
+        <meta
           name="twitter:image"
           content="https://yadoyadoportfolio.vercel.app/thumbnail.png"
         />
         <meta name="theme-color" content="#121212" />
         <link rel="icon" href="/favicon.ico" />
         <title>Minecraft豊橋再現</title>
-</Head>
-
+      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased ${
           isDarkTheme ? "darkTheme" : "lightTheme"
