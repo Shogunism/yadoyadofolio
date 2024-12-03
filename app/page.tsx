@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
 import styles from "../styles/page.module.css";
 import SocialMediaWidgets from "../components/SocialMediaWidgets";
+import Image from "next/image";
+import { useState } from "react";
 
 type ImageData = {
   src: string;
@@ -81,7 +81,7 @@ export default function Home() {
 
   const closeImage = () => {
     setSelectedImage(null);
-    document.body.style.overflow = "auto"; // スクロールを再開
+    document.body.style.overflow = "auto"; // スクロール再開
   };
 
   return (
@@ -94,7 +94,7 @@ export default function Home() {
               className={styles.galleryItem}
               onClick={() => {
                 setSelectedImage(image);
-                document.body.style.overflow = "hidden"; // スクロールを防止
+                document.body.style.overflow = "hidden"; // スクロール停止
               }}
             >
               <Image src={image.src} alt={image.title} width={300} height={300} />
