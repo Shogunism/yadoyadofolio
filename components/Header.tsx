@@ -1,14 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function Header() {
-  const [isDarkTheme, setIsDarkTheme] = useState(true);
+  // デフォルトでホワイトテーマを設定
+  const [isDarkTheme, setIsDarkTheme] = useState(false); // false = ホワイトテーマ
 
   const toggleTheme = () => {
-    setIsDarkTheme((prevTheme) => !prevTheme);
+    setIsDarkTheme((prev) => !prev);
   };
+
+  useEffect(() => {
+    // 保存されたテーマを確認
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      // ローカルストレージに保存されたテーマに基づいて設定
+      setIsDarkTheme(savedTheme === "dark");
+    } else {
+      // デフォルトでホワイトテーマ
+      setIsDarkTheme(false);
+    }
+  }, []);
+  
+  useEffect(() => {
+    // テーマの切り替え
+    document.body.classList.toggle("dark", isDarkTheme);
+    document.body.classList.toggle("light", !isDarkTheme);
+  
+    // ユーザーのテーマ設定を保存
+    localStorage.setItem("theme", isDarkTheme ? "dark" : "light");
+  }, [isDarkTheme]);
 
   return (
     <header className="header">
@@ -46,13 +68,15 @@ export default function Header() {
             src="/theme/moon.svg"
             alt="Moon Icon"
             className={`theme-icon ${isDarkTheme ? "active" : ""}`}
-            onClick={() => (isDarkTheme ? undefined : toggleTheme())}
+            onClick={toggleTheme}
             width={24}
             height={24}
           />
           <div className="theme-toggle" onClick={toggleTheme}>
             <div
-              className={`theme-toggle-circle ${isDarkTheme ? "dark" : "light"}`}
+              className={`theme-toggle-circle ${
+                isDarkTheme ? "dark" : "light"
+              }`}
             ></div>
           </div>
           <Image

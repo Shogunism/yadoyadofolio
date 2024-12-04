@@ -16,18 +16,18 @@ const geistMono = localFont({
 
 // メタデータ定義
 export const metadata = {
-  title: "Minecraft豊橋再現",
-  description: "Minecraftで豊橋を再現したプロジェクトの公式ウェブサイト。",
+  title: "やどやど - Minecraft豊橋再現",
+  description: "Minecraftで豊橋を再現したプロジェクトの公式ウェブサイト",
   charset: "UTF-8",
   viewport: "width=device-width, initial-scale=1.0",
   author: "yadoyado",
-  themeColor: "#121212",
+  themeColor: "#ffffff", // デフォルトテーマの色をホワイトに設定
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "Minecraft豊橋再現",
-    description: "Minecraftで豊橋を再現したプロジェクトの公式ウェブサイト。",
+    title: "やどやど - Minecraft豊橋再現",
+    description: "Minecraftで豊橋を再現したプロジェクトのウェブサイト",
     url: "https://yadoyadoportfolio.vercel.app/",
     type: "website",
     images: [
@@ -38,19 +38,25 @@ export const metadata = {
         alt: "Minecraft豊橋再現 Thumbnail",
       },
     ],
-    siteName: "Minecraft豊橋再現",
+    siteName: "やどやど - Minecraft豊橋再現",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Minecraft豊橋再現",
-    description: "Minecraftで豊橋を再現したプロジェクトの公式ウェブサイト。",
+    title: "やどやど - Minecraft豊橋再現",
+    description: "Minecraftで豊橋を再現するプロジェクトのウェブサイト",
     images: ["https://yadoyadoportfolio.vercel.app/thumbnail.png"],
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // サーバーサイドでデフォルトのホワイトテーマを適用
+  const themeClass = typeof window === "undefined" ? "light" : "";
+
   return (
-    <html lang="ja" className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html
+      lang="ja"
+      className={`${geistSans.variable} ${geistMono.variable} antialiased ${themeClass}`}
+    >
       <head>
         <meta charSet={metadata.charset} />
         <meta name="viewport" content={metadata.viewport} />

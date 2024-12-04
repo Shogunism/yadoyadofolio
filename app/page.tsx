@@ -72,11 +72,11 @@ export default function Home() {
 
     {
       src: "/images/image7.jpeg",
-      title: "ココラフロント/サーラタワー",
+      title: "ロワジールホテル豊橋(豊橋ホリデータワー)",
       description:
-        "2008年開業。豊橋駅西口すぐにある特徴的なビルです。サーラグループ本社、ホテル「アークリッシュ豊橋」、商業施設、ラジオ局スタジオ等が入っています。建造前には西武百貨店がありました。",
-      engine: "Blender",
-      real_location: "豊橋駅前大通丁目",
+        "複合商業施設ホリデイ・スクエア内にあるホテルです。ビルの高さは120m(おそらく尖塔含め)で、三河地域で最も高いビルです。ホテルの２９-３０階にあるバンケットからは広大な眺望が望めます。",
+      engine: "Minecraft shader (chocapic 13 ultra)",
+      real_location: "豊橋市藤沢町",
     },
   ];
 
