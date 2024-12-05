@@ -23,7 +23,7 @@ export default function Home() {
       title: "emCAMPUS豊橋/まちなか図書館",
       description:
         "駅前大通の新しいシンボルの一つです。低層階の煌びやかな照明が街を年中ライトアップさせ、人々を寄せ付けます。2021年11月に開業したこの複合施設は、レストラン、ショップ、図書館、スタジオ、住居などが集約されています。",
-      engine: "Blender",
+      engine: "Blender cycles",
       real_location: "豊橋駅前大通２丁目",
     },
     {
@@ -31,7 +31,7 @@ export default function Home() {
       title: "豊橋駅前大通",
       description:
         "豊橋駅前大通は昭和29年の戦後復興により開発された五十メートル道路です。かつて広小路通り(駅前大通北側に隣接)を走っていた路面電車は現在全てこの通りに集約されています。彼方に広がる豊橋都市圏の中でも、とりわけ際立つ中心市街地の一つです。",
-      engine: "Blender",
+      engine: "Blender cycles ",
       real_location: "(豊橋駅前)",
     },
     {
@@ -39,7 +39,7 @@ export default function Home() {
       title: "emCAMPUS豊橋/まちなか図書館(正面)",
       description:
         "豊橋駅ペデストリアンデッキからもよく見える一際大きな複合施設です。これは正面(駅前大通側)からの姿です。ここにはかつてEAST側は名豊ビル、WESTは開発ビル等があったところに建っています。",
-      engine: "Blender",
+      engine: "Blender cycles",
       real_location: "豊橋駅前大通２丁目",
     },
 
@@ -48,7 +48,7 @@ export default function Home() {
       title: "豊橋駅前大通交差点",
       description:
         "豊橋駅前大通の「豊橋駅前大通」交差点です。豊橋市内電車線の駅前大通停留所があります。",
-      engine: "Blender",
+      engine: "Blender cycles",
       real_location: "豊橋駅前大通",
     },
 
@@ -57,7 +57,7 @@ export default function Home() {
       title: "ほのくに百貨店(解体済)",
       description:
         "1974年開業(2010年まで豊橋丸栄でした)。2020年3月まで運営されていた、現在東三河最後の百貨店となっています。",
-      engine: "Blender",
+      engine: "Blender cycles",
       real_location: "豊橋駅前大通２丁目",
     },
 
@@ -66,7 +66,7 @@ export default function Home() {
       title: "ココラフロント/サーラタワー",
       description:
         "2008年開業。豊橋駅西口すぐにある特徴的なビルです。サーラグループ本社、ホテル「アークリッシュ豊橋」、商業施設、ラジオ局スタジオ等が入っています。建造前には西武百貨店がありました。",
-      engine: "Blender",
+      engine: "Blender cycles",
       real_location: "豊橋駅前大通1丁目",
     },
 
@@ -77,6 +77,23 @@ export default function Home() {
         "複合商業施設ホリデイ・スクエア内にあるホテルです。ビルの高さは120m(おそらく尖塔含め)で、三河地域で最も高いビルです。ホテルの２９-３０階にあるバンケットからは広大な眺望が望めます。",
       engine: "Minecraft shader (chocapic 13 ultra)",
       real_location: "豊橋市藤沢町",
+    },
+
+    {
+      src: "/images/image8.jpeg",
+      title: "駅前大通と路面電車",
+      description:
+        "豊橋市内電車線の3200形が駅前大通を通る図です。",
+      engine: "Blender cycles",
+      real_location: "豊橋市駅前大通",
+    },
+
+    {
+      src: "/images/image9.jpeg",
+      title: "ケーブルテレビ会社",
+      description:
+        "豊橋のケーブルテレビ会社の建物です。(出演する機会を頂けた時に作りました。)",
+        engine: "Minecraft shader (chocapic 13 ultra)",
     },
   ];
 

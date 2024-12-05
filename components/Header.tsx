@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function Header() {
-  // デフォルトでホワイトテーマを設定
+  // デフォルトでホワイトテーマ！
   const [isDarkTheme, setIsDarkTheme] = useState(false); // false = ホワイトテーマ
 
   const toggleTheme = () => {

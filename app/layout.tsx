@@ -48,9 +48,16 @@ export const metadata = {
   },
 };
 
+
+
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  
   // サーバーサイドでデフォルトのホワイトテーマを適用
   const themeClass = typeof window === "undefined" ? "light" : "";
+
+
+
 
   return (
     <html
@@ -83,9 +90,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="twitter:image" content={metadata.twitter.images[0]} />
         <title>{metadata.title}</title>
       </head>
+
+
       <body>
-        <Header /> {/* ヘッダーを呼び出し */}
-        <main>{children}</main> {/* メインコンテンツ */}
+        <Header /> 
+        <main>{children}</main>
       </body>
     </html>
   );
