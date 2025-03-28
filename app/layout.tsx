@@ -1,101 +1,52 @@
-import localFont from "next/font/local";
-import "../styles/globals.css";
-import Header from "../components/Header"; // Headerコンポーネントをインポート
+import React from 'react';
+import { ReactNode } from 'react';
+import Nav from '../components/Nav'; // Navコンポーネントをインポート
+import '../styles/globals.css';
 
-// カスタムフォント設定
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
-// メタデータ定義
-export const metadata = {
-  title: "やどやど - Minecraft豊橋再現",
-  description: "Minecraftで豊橋を再現したプロジェクトの公式ウェブサイト",
-  charset: "UTF-8",
-  viewport: "width=device-width, initial-scale=1.0",
-  author: "yadoyado",
-  themeColor: "#ffffff", // デフォルトテーマの色をホワイトに設定
-  icons: {
-    icon: "/favicon.ico",
-  },
-  openGraph: {
-    title: "やどやど - Minecraft豊橋再現",
-    description: "Minecraftで豊橋を再現したプロジェクトのウェブサイト",
-    url: "https://yadoyadoportfolio.vercel.app/",
-    type: "website",
-    images: [
-      {
-        url: "https://yadoyadoportfolio.vercel.app/thumbnail.png",
-        width: 1200,
-        height: 630,
-        alt: "Minecraft豊橋再現 Thumbnail",
-      },
-    ],
-    siteName: "やどやど - Minecraft豊橋再現",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "やどやど - Minecraft豊橋再現",
-    description: "Minecraftで豊橋を再現するプロジェクトのウェブサイト",
-    images: ["https://yadoyadoportfolio.vercel.app/thumbnail.png"],
-  },
-};
-
-
-
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  
-  // サーバーサイドでデフォルトのホワイトテーマを適用
-  const themeClass = typeof window === "undefined" ? "light" : "";
-
-
-
-
+const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <html
-      lang="ja"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased ${themeClass}`}
-    >
-      <head>
-        <meta charSet={metadata.charset} />
-        <meta name="viewport" content={metadata.viewport} />
-        <meta name="description" content={metadata.description} />
-        <meta name="author" content={metadata.author} />
-        <meta name="theme-color" content={metadata.themeColor} />
-        <link rel="icon" href={metadata.icons.icon} />
+    <html lang="ja">
+      <body style={{ paddingTop: '103px' }}>
+        <div className="container">
+          <Nav /> {/* Navコンポーネントをここにぶちこむ */}
+        </div>
+
+        <main>
+        {children}
+        </main>
+
         
-        {/* Open Graph Meta Tags */}
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta property="og:description" content={metadata.openGraph.description} />
-        <meta property="og:url" content={metadata.openGraph.url} />
-        <meta property="og:type" content={metadata.openGraph.type} />
-        <meta property="og:image" content={metadata.openGraph.images[0].url} />
-        <meta property="og:image:width" content={metadata.openGraph.images[0].width.toString()} />
-        <meta property="og:image:height" content={metadata.openGraph.images[0].height.toString()} />
-        <meta property="og:image:alt" content={metadata.openGraph.images[0].alt} />
-        <meta property="og:site_name" content={metadata.openGraph.siteName} />
+        <footer className = "footer">
+        <div className="footer-logo">
+            <a href="/" style={{ display: 'inline-block' }}>
+              <img src="/mylogo.png" alt="YADOYADO Logo" style={{ width: '160px', height: '80px' }} />
+            </a>
+          </div>
 
-        {/* Twitter Meta Tags */}
-        <meta name="twitter:card" content={metadata.twitter.card} />
-        <meta name="twitter:title" content={metadata.twitter.title} />
-        <meta name="twitter:description" content={metadata.twitter.description} />
-        <meta name="twitter:image" content={metadata.twitter.images[0]} />
-        <title>{metadata.title}</title>
-      </head>
+            <div className="footer-icons" style={{ marginTop: '20px' }}>
+            <a href="https://x.com/yadoyadodayo" target="_blank" rel="noopener noreferrer">
+              <img src="/icons/x-icon.png" alt="" style={{ width: '30px', height: '30px', margin: '0 10px' }} />
+            </a>
+            <a href="https://instagram.com/yadoyadodayo" target="_blank" rel="noopener noreferrer">
+              <img src="/icons/instagram-icon.png" alt="" style={{ width: '30px', height: '30px', margin: '0 10px' }} />
+            </a>
+            <a href="https://youtube.com/@yadoyadodayo" target="_blank" rel="noopener noreferrer">
+              <img src="/icons/youtube-icon.png" alt="" style={{ width: '30px', height: '30px', margin: '0 10px' }} />
+            </a>
+          </div>
 
-
-      <body>
-        <Header /> 
-        <main>{children}</main>
+          
+          <div style = {{marginTop: '10px' }}>
+          <a href="/privacy" style={{ color: '#fff', textDecoration: 'none', margin: '0 10px' }}>プライバシーポリシー</a>
+            <a href="/terms" style={{ color: '#fff', textDecoration: 'none', margin: '0 10px' }}>利用規約</a>
+            <a href="/contact" style={{ color: '#fff', textDecoration: 'none', margin: '0 10px' }}>お問い合わせ</a>
+            <a href="https://acrobat.adobe.com/id/urn:aaid:sc:AP:61672c67-9693-4c34-a34a-a22770cb0f9f" style={{ color: '#fff', textDecoration: 'none', margin: '0 10px' }}>豊橋再現原則</a>
+          </div>
+          <p>&copy; {new Date().getFullYear()} YADOYADO. All rights reserved.</p>
+        </footer>
       </body>
     </html>
   );
-}
+};
+
+export default Layout;

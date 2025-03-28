@@ -1,107 +1,230 @@
+@font-face {
+  font-family: 'Nikoleta';
+  src: url('/fonts/NIKOLETA.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
+.nikoleta-font {
+  font-family: 'Nikoleta', sans-serif;
+}
 
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/static/Roboto_Condensed-Black.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
-/* グローバルスタイル */
+.roboto-font {
+  font-family: 'Roboto', sans-serif;
+}
+
 html, body {
-  height: 100%;
-  font-family: sans-serif;
+  background-color: #2c2c2c; /* 背景色を黒に設定 */
+  color: #ffffff; /* 文字色を白に設定 */
   margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.header-string {
+  font-size: 6em; /* フォントサイズを変更 */
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1.5em; /* フォントサイズを変更 */
+  margin: 0;
+}
+
+a {
+  text-decoration: none; /* アンダーラインを消す */
+  color: #ffffff; /* 通常のリンクの色 */
+}
+
+a:visited {
+  color: #ffffff; /* クリック後のリンクの色 */
+}
+
+a:hover {
+  color: #cccccc; /* ホバー時のリンクの色 */
+}
+
+a:active {
+  color: #999999; /* アクティブ時のリンクの色 */
+}
+
+.nav-container {
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  transition: background-color 0.5s ease, color 0.5s ease; /* 背景色と文字色のスムーズな切り替え */
-}
-
-body.dark {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-body.light {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-/* ヘッダー */
-.header {
-  text-align: center;
-  margin: 20px 0;
-  position: relative;
-  min-height: 200px;
-  padding: 60px 20px;
-  color: inherit;
-  background-size: cover;
-  background-position: center;
-}
-
-.header-images {
-  position: absolute;
+  justify-content: center; /* 中央揃え */
+  align-items: center;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  z-index: -1;
+  z-index: 1000;
+  padding: 20px 0;
+  background-color: #2c2c2c;
+}
+
+.nav_string {
+  text-decoration: none; /* アンダーラインを消す */
+  color: #ffffff !important; 
+  margin: 0 75px; /* リンク間の余白を設定 */
+  font-size: 2em;
+  position: relative; /* 擬似要素の位置を相対的に設定 */
+}
+
+.nav_string::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+  z-index: 1;
+}
+
+.nav_string::after {
+  content: attr(data-text);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  color: #000000;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 0.3s ease;
+  z-index: 2; /* アンダーラインの上に表示 */
+}
+
+.nav_string.left-to-right::before {
+  left: 0;
+}
+
+.nav_string.right-to-left::before {
+  right: 0;
+}
+
+.nav_string.left-to-right:hover::before,
+.nav_string.left-to-right:hover::after {
+  width: 100%;
+}
+
+.nav_string.right-to-left:hover::before,
+.nav_string.right-to-left:hover::after {
+  width: 100%;
+}
+
+.nav_string.active::before,
+.nav_string.active::after {
+  width: 100%;
+}
+
+.work-string{
+  margin: 0 50% 0 0 ;
+}
+
+.minecraft_pics img {
+  filter: saturate(40%); /* 彩度を30%に設定 */
+  border-radius: 50%; /* 画像を丸く面取り */
+}
+
+.header {
+  position: relative;
+  z-index: 1;
+  height: 550px;
+  margin-top: -20px; /* Navの高さに合わせて調整 */
+}
+
+.header-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  object-fit: cover; /* 動画をコンテナに合わせてカバー */
+  z-index: 1;
+  
 }
 
 .header-content {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  z-index: 2;
   text-align: center;
-  color: inherit;
 }
 
-.Header_Title {
-  color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+@media (max-width: 1080px) {
+  .nav_string {
+    margin: 0 20px;
+    font-size: 27px; 
+  }
+
+  .header-string {
+    font-size: 4em; /* フォントサイズを変更 */
+  }
+  
+  .subtitle {
+    font-size: 1em;
+  }
+
+  .header {
+    height: 400px; /* ヘッダーの高さを変更 */
+  }
+
+  .header-video {
+    height: 400px; /* 動画の高さを変更 */
+  }
+
+  .work-string {
+    font-size: 1.6em !important;
+  }
+
+  .more_detail {
+    font-size : 0.7em !important;
+  }
+
 }
 
-.Header_creator {
-  color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-  font-size: 1rem;
+@media (max-width: 600px) {
+  .nav_string {
+    margin: 0 10px;
+    font-size: 20px; 
+  }
+
+  .header-string {
+    font-size: 2em; /* フォントサイズを変更 */
+  }
+  
+  .subtitle {
+    font-size: 0.8em;
+    margin-bottom: -100px;
+  }
+
+  .header {
+    height: 300px; /* ヘッダーの高さを変更 */
+  }
+
+  .header-video {
+    height: 300px; /* 動画の高さを変更 */
+  }
 }
 
-/* テーマ切り替えスイッチ */
-.theme-switcher {
-  position: absolute;
-  top: -70px;
-  right: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 20px;
-  z-index: 10;
+/* フッターのスタイル */
+.footer {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  padding: 100px;
+  text-align: center;
+  position: relative; /* 必要に応じて調整 */
+  z-index: 2; /* 背景より手前に表示 */
 }
 
-.theme-toggle {
-  position: relative;
-  width: 50px;
-  height: 25px;
-  background: linear-gradient(135deg, #d1d1d1, #ffffff);
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease; /* スイッチの色切り替え */
-}
-
-.theme-toggle-circle {
-  position: absolute;
-  top: 2px;
-  width: 21px;
-  height: 21px;
-  background: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: left 0.3s ease; /* トグルの滑らかな動き */
-}
-
-.theme-toggle-circle.dark {
-  left: 2px;
-}
-
-.theme-toggle-circle.light {
-  left: calc(100% - 23px);
-}

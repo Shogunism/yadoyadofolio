@@ -1,159 +1,100 @@
-
 "use client";
+import Link from 'next/link';
+import React, { useRef } from 'react';
+import '../styles/globals.css'; // グローバルCSSをインポート
 
-import Image from "next/image";
-import { useState } from "react";
-import styles from "../styles/page.module.css";
-import SocialMediaWidgets from "../components/SocialMediaWidgets";
+const HomePage = () => {
+  const videoRef1 = useRef<HTMLVideoElement>(null);
+  const videoRef2 = useRef<HTMLVideoElement>(null);
+  const worksRef = useRef<HTMLDivElement>(null);
 
-type ImageData = {
-  src: string;
-  title: string;
-  description: string;
-  engine?: string;
-  real_location?: string;
-};
+  const handleButtonClick = () => {
+    if (worksRef.current) {
+      worksRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
-export default function Home() {
-  const [selectedImage, setSelectedImage] = useState<ImageData | null>(null);
+  const handleMouseLeave = (videoRef: React.RefObject<HTMLVideoElement>) => {
+    if (videoRef.current && !videoRef.current.paused) {
+      videoRef.current.pause();
+    }
+  };
 
-  const images: ImageData[] = [
-    {
-      src: "/images/image1.png",
-      title: "emCAMPUS豊橋/まちなか図書館",
-      description:
-        "駅前大通の新しいシンボルの一つです。低層階の煌びやかな照明が街を年中ライトアップさせ、人々を寄せ付けます。2021年11月に開業したこの複合施設は、レストラン、ショップ、図書館、スタジオ、住居などが集約されています。",
-      engine: "Blender cycles",
-      real_location: "豊橋駅前大通２丁目",
-    },
-    {
-      src: "/images/image2.png",
-      title: "豊橋駅前大通",
-      description:
-        "豊橋駅前大通は昭和29年の戦後復興により開発された五十メートル道路です。かつて広小路通り(駅前大通北側に隣接)を走っていた路面電車は現在全てこの通りに集約されています。彼方に広がる豊橋都市圏の中でも、とりわけ際立つ中心市街地の一つです。",
-      engine: "Blender cycles ",
-      real_location: "(豊橋駅前)",
-    },
-    {
-      src: "/images/image3.png",
-      title: "emCAMPUS豊橋/まちなか図書館(正面)",
-      description:
-        "豊橋駅ペデストリアンデッキからもよく見える一際大きな複合施設です。これは正面(駅前大通側)からの姿です。ここにはかつてEAST側は名豊ビル、WESTは開発ビル等があったところに建っています。",
-      engine: "Blender cycles",
-      real_location: "豊橋駅前大通２丁目",
-    },
+  const handleMouseEnter = (videoRef: React.RefObject<HTMLVideoElement>) => {
+    if (videoRef.current && videoRef.current.paused) {
+      videoRef.current.play().catch((error) => {
+        console.error('動画の再生に失敗しました:', error);
+      });
+    }
+  };
 
-    {
-      src: "/images/image4.jpeg",
-      title: "豊橋駅前大通交差点",
-      description:
-        "豊橋駅前大通の「豊橋駅前大通」交差点です。豊橋市内電車線の駅前大通停留所があります。",
-      engine: "Blender cycles",
-      real_location: "豊橋駅前大通",
-    },
-
-    {
-      src: "/images/image5.jpeg",
-      title: "ほのくに百貨店(解体済)",
-      description:
-        "1974年開業(2010年まで豊橋丸栄でした)。2020年3月まで運営されていた、現在東三河最後の百貨店となっています。",
-      engine: "Blender cycles",
-      real_location: "豊橋駅前大通２丁目",
-    },
-
-    {
-      src: "/images/image6.jpeg",
-      title: "ココラフロント/サーラタワー",
-      description:
-        "2008年開業。豊橋駅西口すぐにある特徴的なビルです。サーラグループ本社、ホテル「アークリッシュ豊橋」、商業施設、ラジオ局スタジオ等が入っています。建造前には西武百貨店がありました。",
-      engine: "Blender cycles",
-      real_location: "豊橋駅前大通1丁目",
-    },
-
-    {
-      src: "/images/image7.jpeg",
-      title: "ロワジールホテル豊橋(豊橋ホリデータワー)",
-      description:
-        "複合商業施設ホリデイ・スクエア内にあるホテルです。ビルの高さは120m(おそらく尖塔含め)で、三河地域で最も高いビルです。ホテルの２９-３０階にあるバンケットからは広大な眺望が望めます。",
-      engine: "Minecraft shader (chocapic 13 ultra)",
-      real_location: "豊橋市藤沢町",
-    },
-
-    {
-      src: "/images/image8.jpeg",
-      title: "駅前大通と路面電車",
-      description:
-        "豊橋市内電車線の3200形が駅前大通を通る図です。",
-      engine: "Blender cycles",
-      real_location: "豊橋市駅前大通",
-    },
-
-    {
-      src: "/images/image9.jpeg",
-      title: "ケーブルテレビ会社",
-      description:
-        "豊橋のケーブルテレビ会社の建物です。(出演する機会を頂けた時に作りました。)",
-        engine: "Minecraft shader (chocapic 13 ultra)",
-    },
-  ];
-
-  const closeImage = () => {
-    setSelectedImage(null);
-    document.body.style.overflow = "auto"; // スクロールを再開
+  const handleVideoEnd = (videoRef: React.RefObject<HTMLVideoElement>) => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
   };
 
   return (
-    <div>
-      <main className={styles.mainContent}>
-        <section className={styles.gallery}>
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className={styles.galleryItem}
-              onClick={() => {
-                setSelectedImage(image);
-                document.body.style.overflow = "hidden"; // スクロールを防止
-              }}
-            >
-              <Image src={image.src} alt={image.title} width={300} height={300} />
-            </div>
-          ))}
-        </section>
-      </main>
-
-      {selectedImage && (
-        <div className={styles.modal}>
-          <div className={styles.modalBackdrop} onClick={closeImage}></div>
-          <div className={styles.modalContent}>
-            <div className={styles.modalImageContainer}>
-              <Image
-                src={selectedImage.src}
-                alt={selectedImage.title}
-                width={600}
-                height={400}
-                style={{ objectFit: "contain" }}
-              />
-            </div>
-            <div className={styles.modalCaption}>
-              <h3>{selectedImage.title}</h3>
-              <p>{selectedImage.description}</p>
-              {selectedImage.engine && <p><strong>Engine:</strong> {selectedImage.engine}</p>}
-              {selectedImage.real_location && (
-                <p><strong>Real Location:</strong> {selectedImage.real_location}</p>
-              )}
-            </div>
-            <button className={styles.closeButton} onClick={closeImage}>
-              戻る
-            </button>
-          </div>
+    <div style={{ textAlign: 'center', padding: '0px', position: 'relative' }}>
+      <nav style={{ position: 'fixed', top: '0', left: '0', width: '100%', zIndex: '10', backgroundColor: '#333', color: '#fff', padding: '10px' }}>
+        <ul style={{ listStyle: 'none', margin: '0', padding: '0', display: 'flex', justifyContent: 'space-around' }}>
+          <li><a href="#home" style={{ color: '#fff', textDecoration: 'none' }}>Home</a></li>
+          <li><a href="#about" style={{ color: '#fff', textDecoration: 'none' }}>About</a></li>
+          <li><a href="#contact" style={{ color: '#fff', textDecoration: 'none' }}>Contact</a></li>
+        </ul>
+      </nav>
+      <header className="header">
+        <video ref={videoRef1} autoPlay loop muted className="header-video">
+          <source src="/web_movie_clop.mp4" type="video/mp4" />
+          お使いのブラウザは動画タグに対応していません。悲しいですね。
+        </video>
+        <div className="header-content">
+          <h1 className="nikoleta-font header-string"><span>YADOYADO</span></h1>
+          <p className="subtitle">Minecraft / 3DCG / Movie Edit</p>
         </div>
-      )}
+      </header>
 
-      <SocialMediaWidgets />
+      <div style={{ textAlign: 'center', paddingTop: '30px', zIndex: '2', position: 'relative', backgroundColor: '#2c2c2c', color: '#ffffff' }}>
+        <div style={{ position: 'relative', display: 'inline-block' }}>
+          <video
+            ref={videoRef1}
+            style={{ width: '66%', height: 'auto' }}
+            onMouseEnter={() => handleMouseEnter(videoRef1)}
+            onMouseLeave={() => handleMouseLeave(videoRef1)}
+            onEnded={() => handleVideoEnd(videoRef1)}
+            muted
+          >
+            <source src="/mc_wall.mp4" type="video/mp4" />
+            お使いのブラウザは動画タグに対応していません。悲しいですね。
+          </video>
+          <h1 className="roboto-font work-string" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', whiteSpace: 'nowrap', fontSize: '3em' }}>film works</h1>
+          <Link href="/gallery">
+            <button className="more_detail" onClick={handleButtonClick} style={{ position: 'absolute', top: '70%', left: '50%', transform: 'translate(-50%, -50%)', padding: '10px 20px', fontSize: '1em', cursor: 'pointer', zIndex: '3' }}>詳しく見る</button>
+          </Link>
+        </div>
+      </div>
 
-      <footer className={styles.footer}>
-        © 2024 Yadoyado. All Rights Reserved.
-      </footer>
+      <div style={{ textAlign: 'center', paddingTop: '30px', zIndex: '2', position: 'relative', backgroundColor: '#2c2c2c', color: '#ffffff' }}>
+        <div style={{ position: 'relative', display: 'inline-block' }}>
+          <video
+            ref={videoRef2}
+            style={{ width: '66%', height: 'auto' }}
+            onMouseEnter={() => handleMouseEnter(videoRef2)}
+            onMouseLeave={() => handleMouseLeave(videoRef2)}
+            onEnded={() => handleVideoEnd(videoRef2)}
+            muted 
+          >
+            <source src="/mc_wall_2.mp4" type="video/mp4" />
+            お使いのブラウザは動画タグに対応していません。悲しいですね。
+          </video>
+          <h1 className="roboto-font work-string" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', whiteSpace: 'nowrap', fontSize: '3em' }}>Minecraft works</h1>
+          <Link href="/gallery">
+            <button className="more_detail" onClick={handleButtonClick} style={{ position: 'absolute', top: '70%', left: '50%', transform: 'translate(-50%, -50%)', padding: '10px 20px', fontSize: '1em', cursor: 'pointer', zIndex: '3' }}>詳しく見る</button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default HomePage;
