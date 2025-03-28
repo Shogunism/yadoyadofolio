@@ -1,5 +1,4 @@
 import React from 'react'; // Reactをインポート
-import Link from 'next/link'; // Next.jsのLinkコンポーネントをインポート
 
 const ProfilePage = () => {
   return (

@@ -332,7 +332,7 @@ const GalleryPage = () => {
   return (
     <div>
       <div className = {styles.Header}>
-        <img src = "/gallery_wall_toyohashi.png" alt = "豊橋市のheader" className={styles.HeaderImage} />
+        <Image src = "/gallery_wall_toyohashi.png" alt = "豊橋市のheader" className={styles.HeaderImage} />
         <h1 className= {`${styles.HeaderTitle} ${styles.robotoFont}`}>Minecraft 豊橋再現</h1>
       </div>
 
@@ -354,7 +354,7 @@ const GalleryPage = () => {
 
       <div className = {styles.Header}>
         
-        <img src = "/gallery_wall_saigen.png" alt = "豊橋市のheader" className={styles.HeaderImage} />
+        <Image src = "/gallery_wall_saigen.png" alt = "豊橋市のheader" className={styles.HeaderImage} />
         <h1 className= {`${styles.HeaderTitle} ${styles.robotoFont}`}>Minecraft 再現建築</h1>
       </div>
       
@@ -376,7 +376,7 @@ const GalleryPage = () => {
 
       <div className = {styles.Header}>
         
-        <img src = "/gallery_wall_original.png" alt = "豊橋市のheader" className={styles.HeaderImage} />
+        <Image src = "/gallery_wall_original.png" alt = "豊橋市のheader" className={styles.HeaderImage} />
         <h1 className= {`${styles.HeaderTitle} ${styles.robotoFont}`}>Minecraft オリジナル建築</h1>
       </div>
 
