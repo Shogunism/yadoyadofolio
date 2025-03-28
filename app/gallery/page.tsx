@@ -331,10 +331,10 @@ const GalleryPage = () => {
 
   return (
     <div>
-      <div className = {styles.Header}>
-        <Image src = "/gallery_wall_toyohashi.png" alt = "豊橋市のheader" className={styles.HeaderImage} />
-        <h1 className= {`${styles.HeaderTitle} ${styles.robotoFont}`}>Minecraft 豊橋再現</h1>
-      </div>
+      <div className={styles.Header}>
+  <Image src="/gallery_wall_toyohashi.png" alt="豊橋市のheader" width={1280} height={720} className={styles.HeaderImage} />
+  <h1 className={`${styles.HeaderTitle} ${styles.robotoFont}`}>Minecraft 豊橋再現</h1>
+</div>
 
       {/*画像をぽんぽん表示するにょ〜ん*/}
       <main className={styles.gallery}>
@@ -347,14 +347,14 @@ const GalleryPage = () => {
             }}
           >
             <Image src={image.src} alt={image.title} width={300} height={300} />
-          </div>
+            </div>
         ))}
       </main>
       <div style={{ margin: "20px 0" }}></div>
 
       <div className = {styles.Header}>
         
-        <Image src = "/gallery_wall_saigen.png" alt = "豊橋市のheader" className={styles.HeaderImage} />
+        <Image src = "/gallery_wall_saigen.png" alt = "豊橋市のheader" width={1280} height={720} className={styles.HeaderImage} />
         <h1 className= {`${styles.HeaderTitle} ${styles.robotoFont}`}>Minecraft 再現建築</h1>
       </div>
       
@@ -376,7 +376,7 @@ const GalleryPage = () => {
 
       <div className = {styles.Header}>
         
-        <Image src = "/gallery_wall_original.png" alt = "豊橋市のheader" className={styles.HeaderImage} />
+        <Image src = "/gallery_wall_original.png" alt = "豊橋市のheader" width={1280} height={720} className={styles.HeaderImage} />
         <h1 className= {`${styles.HeaderTitle} ${styles.robotoFont}`}>Minecraft オリジナル建築</h1>
       </div>
 
