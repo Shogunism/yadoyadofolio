@@ -46,6 +46,14 @@ import styles from "../../styles/page.module.css";
               <Image src="/skills/typescript.webp" alt="Typescript" width={70} height={70} />
               <p>Typescript</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
+            <div className={styles.Skill_item}>
+              <Image src="/skills/nodejs.png" alt="Nodejs" width={70} height={70} />
+              <p>Node.js</p> {/* Blenderのロゴの下に文字を追加 */}
+            </div>
+            <div className={styles.Skill_item}>
+              <Image src="/skills/react.png" alt="react" width={70} height={70} />
+              <p>React</p> {/* Blenderのロゴの下に文字を追加 */}
+            </div>
           </div>
         </div>
 
