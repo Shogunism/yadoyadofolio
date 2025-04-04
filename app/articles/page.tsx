@@ -24,6 +24,8 @@ const ArticlePage = () => {
     return <div className={styles.Loading}>Loading Articles...</div>; // 読み込み中の表示
   }
 
+  
+
   return (
     <div className={styles.ArticleBox}>
       <h1>記事一覧</h1>
@@ -33,13 +35,15 @@ const ArticlePage = () => {
             <div className={styles.Article_item}>
               <li style={{ marginBottom: "20px" }}>
                 <Link href={article.path}>
-                  <div style={{ paddingTop: "20px", paddingBottom: "20px" }}>
+                  <div style={{ paddingTop: "20px", paddingBottom: "20px" , }}>
                     {article.thumbnail && (
                       <Image
-                        src={article.thumbnail}
-                        alt={article.title}
-                        style={{ width: "288px", height: "162px", objectFit: "cover" }}
-                      />
+                      src={article.thumbnail}
+                      alt={article.title}
+                      width={288} // アスペクト比の幅
+                      height={162} // アスペクト比の高さ
+                      style={{ objectFit: "cover" }}
+                    />
                     )}
                     <h2>{article.title}</h2>
                   </div>

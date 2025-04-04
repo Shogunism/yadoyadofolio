@@ -79,6 +79,11 @@ import styles from "../../styles/page.module.css";
               <Image src="/interests/universe.svg" alt="universe" width={70} height={70} />
               <p>Universe</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
+
+            <div className={styles.Skill_item}>
+              <Image src="/interests/walking.svg" alt="walk" width={70} height={70} />
+              <p>Walking</p> {/* Blenderのロゴの下に文字を追加 */}
+            </div>
           </div>
         </div>
 
