@@ -3,8 +3,8 @@ import path from "path";
 import { marked } from "marked";
 import { NextResponse } from "next/server";
 
-export async function GET(request: Request, context: { params: { name: string } }) {
-  const { name } = context.params; // URLパラメータから記事名を取得
+export async function GET(request: Request, { params }: { params: { name: string } }) {
+  const { name } = params; // URLパラメータから記事名を取得
   const filePath = path.join(process.cwd(), "app/articles/posts", `${name}.md`);
 
   if (!fs.existsSync(filePath)) {
