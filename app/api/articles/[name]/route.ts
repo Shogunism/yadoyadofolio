@@ -4,15 +4,14 @@ import { marked } from "marked";
 import DOMPurify from "dompurify";
 import { NextRequest, NextResponse } from "next/server";
 
-interface Context {
-  params: { name?: string }; // 型を修正
-}
+export async function GET(
+  request: NextRequest,
+  context: { params: { [key: string]: string | string[] | undefined } }
+) {
+  const { name } = context.params;
 
-export async function GET(request: NextRequest, context: Context) {
-  const { name } = context.params; // URLパラメータから記事名を取得
-
-  if (!name) {
-    return NextResponse.json({ error: "Article name is required" }, { status: 400 });
+  if (!name || Array.isArray(name)) {
+    return NextResponse.json({ error: "Invalid article name" }, { status: 400 });
   }
 
   const filePath = path.join(process.cwd(), "app/articles/posts", `${name}.md`);
