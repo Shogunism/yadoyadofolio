@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true, // ライブラリの型チェックをスキップ
     "strict": true, // 厳密な型チェックを有効化
@@ -16,9 +20,23 @@
     "module": "esnext",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"] // モジュール解決のエイリアス
-    }
+      "@/*": [
+        "./*"
+      ] // モジュール解決のエイリアス
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
