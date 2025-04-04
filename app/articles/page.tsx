@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "../../styles/page.module.css";
+import Image from "next/image";
 
 const ArticlePage = () => {
   const [articles, setArticles] = useState<
@@ -34,7 +35,7 @@ const ArticlePage = () => {
                 <Link href={article.path}>
                   <div style={{ paddingTop: "20px", paddingBottom: "20px" }}>
                     {article.thumbnail && (
-                      <img
+                      <Image
                         src={article.thumbnail}
                         alt={article.title}
                         style={{ width: "288px", height: "162px", objectFit: "cover" }}
