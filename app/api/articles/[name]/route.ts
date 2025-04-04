@@ -6,13 +6,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   request: NextRequest,
-  context: { params: { [key: string]: string | string[] | undefined } }
+  { params }: { params: { name: string } }
 ) {
-  const { name } = context.params;
-
-  if (!name || Array.isArray(name)) {
-    return NextResponse.json({ error: "Invalid article name" }, { status: 400 });
-  }
+  const { name } = params;
 
   const filePath = path.join(process.cwd(), "app/articles/posts", `${name}.md`);
 
@@ -24,7 +20,7 @@ export async function GET(
   try {
     const fileContent: string = fs.readFileSync(filePath, "utf-8");
     const markdownContent = await Promise.resolve(marked(fileContent));
-    const htmlContent = DOMPurify.sanitize(markdownContent); // Markdown を HTML に変換し、サニタイズ
+    const htmlContent = DOMPurify.sanitize(markdownContent);
 
     const titleMatch = fileContent.match(/^# (.+)$/m);
     const title = titleMatch ? titleMatch[1] : "Untitled";
