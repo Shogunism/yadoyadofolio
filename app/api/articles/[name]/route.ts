@@ -1,36 +1,38 @@
-import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 import { marked } from "marked";
-
-// DOMPurify を使うなら JSDOM 組み合わせも必要（後述）
+import { JSDOM } from "jsdom";
+import createDOMPurify from "dompurify";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { name: string } }  // ✅ 明示してOK
+  { params }: { params: Promise<{ name: string }> }
 ) {
-  const { name } = params;
-
-  if (!name || Array.isArray(name)) {
-    return NextResponse.json({ error: "Invalid article name" }, { status: 400 });
-  }
+  const { name } = await params;
 
   const filePath = path.join(process.cwd(), "app/articles/posts", `${name}.md`);
 
   if (!fs.existsSync(filePath)) {
+    console.error(`File not found: ${filePath}`);
     return NextResponse.json({ error: "Article not found" }, { status: 404 });
   }
 
   try {
     const fileContent = fs.readFileSync(filePath, "utf-8");
-    const html = marked(fileContent);
+    const markdownContent = marked(fileContent);
 
-    // titleだけMarkdownの1行目から取得
+    const window = new JSDOM("").window;
+    const DOMPurify = createDOMPurify(window);
+    const rawHtml = await marked(fileContent);
+    const htmlContent = DOMPurify.sanitize(rawHtml);
+
     const titleMatch = fileContent.match(/^# (.+)$/m);
     const title = titleMatch ? titleMatch[1] : "Untitled";
 
-    return NextResponse.json({ name, title, content: html });
-  } catch {
+    return NextResponse.json({ name, title, content: htmlContent });
+  } catch (error) {
+    console.error("Error reading file:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
