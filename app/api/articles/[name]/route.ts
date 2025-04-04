@@ -4,7 +4,11 @@ import { marked } from "marked";
 import DOMPurify from "dompurify";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(request: NextRequest, context: { params: Record<string, string> }) {
+interface Context {
+  params: { name?: string }; // 型を修正
+}
+
+export async function GET(request: NextRequest, context: Context) {
   const { name } = context.params; // URLパラメータから記事名を取得
 
   if (!name) {
