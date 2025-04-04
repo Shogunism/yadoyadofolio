@@ -1,4 +1,4 @@
-import { marked } from "marked"; // MarkdownをHTMLに変換するライブラリをインポート
+
 
 interface ArticleProps {
   params: { article: string }; // URLパラメータとして記事名を受け取る
