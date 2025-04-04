@@ -3,7 +3,7 @@ import path from "path";
 import { marked } from "marked";
 import { NextResponse } from "next/server";
 
-export async function GET(request: Request, { params }: { params: { name: string } }) {
+export async function GET(request: Request, { params }: { params: { [key: string]: string } }) {
   const { name } = params; // URLパラメータから記事名を取得
   const filePath = path.join(process.cwd(), "app/articles/posts", `${name}.md`);
 
