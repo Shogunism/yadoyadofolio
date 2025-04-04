@@ -1,4 +1,4 @@
-import { marked } from "marked"; // 名前付きエクスポートに変更
+
 
 interface ArticleProps {
   params: Promise<{ article: string }>; // 非同期型に修正
