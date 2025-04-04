@@ -1,3 +1,5 @@
+
+
 interface ArticleProps {
   params: Promise<{ article: string }>; // 非同期型に修正
 }
