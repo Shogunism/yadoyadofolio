@@ -20,7 +20,6 @@ export async function GET(
 
   try {
     const fileContent = fs.readFileSync(filePath, "utf-8");
-    const markdownContent = marked(fileContent);
 
     const window = new JSDOM("").window;
     const DOMPurify = createDOMPurify(window);
