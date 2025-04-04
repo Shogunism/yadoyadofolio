@@ -4,8 +4,13 @@ import { marked } from "marked";
 import DOMPurify from "dompurify";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(request: NextRequest, { params }: { params: { name: string } }) {
-  const { name } = params; // URLパラメータから記事名を取得
+export async function GET(request: NextRequest, context: { params: { [key: string]: string | undefined } }) {
+  const { name } = context.params; // URLパラメータから記事名を取得
+
+  if (!name) {
+    return NextResponse.json({ error: "Article name is required" }, { status: 400 });
+  }
+
   const filePath = path.join(process.cwd(), "app/articles/posts", `${name}.md`);
 
   if (!fs.existsSync(filePath)) {
