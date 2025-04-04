@@ -30,7 +30,7 @@ export async function GET(
     const title = titleMatch ? titleMatch[1] : "Untitled";
 
     return NextResponse.json({ name, title, content: html });
-  } catch (err) {
+  } catch {
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
