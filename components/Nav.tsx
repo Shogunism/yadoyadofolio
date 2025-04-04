@@ -12,7 +12,7 @@ const Nav = () => {
     { href: '/profile', label: 'PROFILE' },
     { href: '/gallery', label: 'GALLERY' },
     { href: '/', label: 'HOME' },
-    { href: '/article', label: 'ARTICLE' },
+    { href: '/articles', label: 'ARTICLES' },
     { href: '/contact', label: 'CONTACT' },
   ];
 

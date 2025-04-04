@@ -1,0 +1,26 @@
+/* このファイルは、ページのスタイルを定義する CSS モジュールです。 */
+
+.article-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.article-list li {
+    margin: 10px 0;
+}
+
+.article-title {
+    font-size: 1.5rem;
+    color: #0070f3;
+    text-decoration: none;
+}
+
+.article-title:hover {
+    text-decoration: underline;
+}
+
+.article-content {
+    margin: 20px 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}

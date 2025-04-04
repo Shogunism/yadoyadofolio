@@ -7,7 +7,7 @@ import styles from "../../styles/page.module.css";
 
 type ImageData = {
   src: string;
-  
+
   title: string;
   description: string;
   src2: string;
@@ -15,14 +15,39 @@ type ImageData = {
   description2: string;
   engine?: string;
   real_location?: string;
-  
-  
 };
+
+type FilmData = {
+  movie: string; // YouTubeの埋め込みリンク
+  title: string;
+  description: string;
+  thumbnail: string; // サムネイル画像のURL
+};
+
+
 
 
 
 const GalleryPage = () => {
   const [selectedImage, setSelectedImage] = useState<ImageData | null>(null);
+  const [activeTab, setActiveTab] = useState<"photos" | "films">("photos"); // 現在のタブを管理
+  const [selectedFilm, setSelectedFilm] = useState<FilmData | null>(null);
+  
+  useEffect(() => {
+      if (selectedFilm) {
+        document.body.style.overflow = "hidden"; // モーダル表示中はスクロールを防止
+      } else {
+        document.body.style.overflow = "auto"; // モーダルが閉じられたらスクロールを再開
+      }
+  
+      return () => {
+        document.body.style.overflow = "auto";
+      };
+    }, [selectedFilm]);
+  
+    const closeFilmModal = () => {
+      setSelectedFilm(null);
+    };
 
   useEffect(() => {
     if (selectedImage) {
@@ -40,6 +65,43 @@ const GalleryPage = () => {
   const closeImage = () => {
     setSelectedImage(null);
   };
+
+  const films: FilmData[] = [
+    {
+      movie: "https://www.youtube.com/embed/W4YDVLkNvrM", // サンプルYouTubeリンク
+      thumbnail: "/images/thumbnail_1.jpeg", // サムネイル画像
+      title: "【マインクラフト x Blender】巨大駅 」ひばな駅」プロモーション映像",
+      description: "使用楽曲「Sleeping Tiger」は、エイジアンな楽器とストリングスの融合が魅力的で、「東洋の大都会」と言う随分漠然としたイメージをお伝えするにはピッタリだと思って購入・使用しました。 音楽も、まるで虎が目覚めて歩き始めるようで、夜明けの表現として適用させました。  ",
+    },
+    {
+      movie: "https://www.youtube.com/embed/UDUS0DJQHlQ", // サンプルYouTubeリンク
+      thumbnail: "/images/thumbnail_2.png", // サムネイル画像
+      title: "【マイクラxBlender】重力レンズで歪むブラックホール",
+      description: "Minecraftでブラックホールの降着円盤(外側)と光子球(内側)を作成し、Blenderで重力レンズを作りました。これによりブラックホールの強大な重力を近似的に表現し、直感的には理解しがたいものを視覚的に表現することに成功しました。",
+    },
+    {
+      movie: "https://www.youtube.com/embed/WmXa0o_X8n0", // サンプルYouTubeリンク
+      thumbnail: "/images/thumbnail_3.png", // サムネイル画像
+      title: "【Minecrarft豊橋再現】紹介映像",
+      description: "マインクラフト豊橋再現の基本的な紹介映像です。Blenderでのレンダリング表現をちょうど始めた頃だったので、レンダリングでの映像はオオトリを飾っています。",
+    },
+
+    {
+      movie: "https://www.youtube.com/embed/bILsSf3wcAY", // サンプルYouTubeリンク
+      thumbnail: "/images/thumbnail_4.png", // サムネイル画像
+      title: "【Minecrarftコマ撮り】Minecraftで作った高速で走る新幹線",
+      description: "マインクラフト内でコマ撮り撮影をし、高速で走る新幹線を表現しました。なお、奥の山、空というふうにレイヤー分けをすることで、違和感のない自然な表現を試みています。",
+    },
+
+    {
+      movie: "https://www.youtube.com/embed/1Mfu2NyFl-0", // サンプルYouTubeリンク
+      thumbnail: "/images/thumbnail_5.png", // サムネイル画像
+      title: "【Minecraft x 好きな建材発表ドラゴン】 / 重音テト",
+      description: "流行っていたので、思いつきで作った動画です。テロップ以外は全てマイクラ上で定点撮影による直接採取した素材です。好きな建材発表(エンダー)ドラゴン。",
+    },
+  ];
+
+
 
   const images: ImageData[] = [
     {
@@ -153,8 +215,8 @@ const GalleryPage = () => {
       title: "ケーブルテレビ会社",
       description:
         "豊橋のケーブルテレビ会社の建物です。(出演する機会を頂けた時に作りました。)",
-        engine: "Minecraft shader (chocapic 13 ultra)",
-        real_location: "豊橋市小畷町",
+      engine: "Minecraft shader (chocapic 13 ultra)",
+      real_location: "豊橋市小畷町",
     },
 
     {
@@ -166,8 +228,8 @@ const GalleryPage = () => {
       title: "豊橋市役所 西蒲/東館",
       description:
         "西蒲８階、東館１３階建ての役所です。基本的な市役所機能に加え、最高層階には無料開放されている常設/特設展示、市街や近辺の地域を一望できる展望施設、イタリアンレストランなどがあり、市街の人も気軽に寄って楽しめる施設です。",
-        engine: "Minecraft shader (chocapic 13 ultra)",
-        real_location: "豊橋市小畷町",
+      engine: "Minecraft shader (chocapic 13 ultra)",
+      real_location: "豊橋市小畷町",
     },
 
 
@@ -329,76 +391,129 @@ const GalleryPage = () => {
 
   ];
 
+
+
+  
   return (
     <div>
-      <div className={styles.Header}>
-  <Image src="/gallery_wall_toyohashi.png" alt="豊橋市のheader" width={1280} height={720} className={styles.HeaderImage} />
-  <h1 className={`${styles.HeaderTitle} ${styles.robotoFont}`}>Minecraft 豊橋再現</h1>
-</div>
+      {/* タブボタン */}
+      <div className={styles.tabButtons }>
+          <span
+            className={activeTab === "photos" ? styles.active : ""}
+            onClick={() => setActiveTab("photos")}
+          >
+            PHOTOS
+          </span>
+          <span
+            className={activeTab === "films" ? styles.active : ""}
+            onClick={() => setActiveTab("films")}
+          >
+            FILMS
+          </span>
+          <div
+            id={styles.lamp}
+            className={activeTab === "photos" ? styles.photos : styles.films}
+          ></div>
+        </div>
+
+        {/* タブコンテンツ */}
+        <div className={styles.tabContent}>
+          {activeTab === "photos" && (
+            <div className={styles.photos}>
+            </div>
+          )}
+          {activeTab === "films" && (
+            <div className={styles.films}>
+            </div>
+          )}
+        </div>
+
+        {/* 写真を表示 */}
+        <div className={styles.tabContent}>
+          {activeTab === "photos" && (
+            <div>
+            </div>
+        )}
+
+        {/* 映像を表示 */}
+          {activeTab === "films" && (
+            <div>
+            </div>
+          )}
+        </div>
+
+
+      {/* タブコンテンツ */}
+      <div className={styles.tabContent}>
+        {activeTab === "photos" && (
+          <div>
+            <div className={styles.Header}>
+        <Image src="/gallery_wall_toyohashi.png" alt="豊橋市のheader" width={1280} height={720} className={styles.HeaderImage} />
+        <h1 className={`${styles.HeaderTitle} ${styles.robotoFont}`}>Minecraft 豊橋再現</h1>
+      </div>
 
       {/*画像をぽんぽん表示するにょ〜ん*/}
       <main className={styles.gallery}>
         {images.map((image, index) => (
           <div
-            key={index} 
-            className={styles.galleryItem} 
-            onClick={() => {　
+            key={index}
+            className={styles.galleryItem}
+            onClick={() => {
               setSelectedImage(image); // 画像をクリックしたらモーダル表示して...
             }}
           >
             <Image src={image.src} alt={image.title} width={300} height={300} />
-            </div>
+          </div>
         ))}
       </main>
-      <div style={{ margin: "20px 0" }}></div>
 
-      <div className = {styles.Header}>
-        
-        <Image src = "/gallery_wall_saigen.png" alt = "豊橋市のheader" width={1280} height={720} className={styles.HeaderImage} />
-        <h1 className= {`${styles.HeaderTitle} ${styles.robotoFont}`}>Minecraft 再現建築</h1>
+      <div className={styles.Header}>
+
+        <Image src="/gallery_wall_saigen.png" alt="豊橋市のheader" width={1280} height={720} className={styles.HeaderImage} />
+        <h1 className={`${styles.HeaderTitle} ${styles.robotoFont}`}>Minecraft 再現建築</h1>
       </div>
-      
+
       {/*画像をぽんぽん表示するにょ〜ん*/}
       <main className={styles.gallery}>
         {images2.map((image, index) => (
           <div
-            key={index} 
-            className={styles.galleryItem_2} 
+            key={index}
+            className={styles.galleryItem_2}
             onClick={() => {
               setSelectedImage(image); // 画像をクリックしたらモーダル表示して...
             }}
           >
             <Image src={image.src} alt={image.title} width={300} height={300} />
           </div>
-          
+
         ))}
       </main>
 
-      <div className = {styles.Header}>
-        
-        <Image src = "/gallery_wall_original.png" alt = "豊橋市のheader" width={1280} height={720} className={styles.HeaderImage} />
-        <h1 className= {`${styles.HeaderTitle} ${styles.robotoFont}`}>Minecraft オリジナル建築</h1>
+      <div className={styles.Header}>
+
+        <Image src="/gallery_wall_original.png" alt="豊橋市のheader" width={1280} height={720} className={styles.HeaderImage} />
+        <h1 className={`${styles.HeaderTitle} ${styles.robotoFont}`}>Minecraft オリジナル建築</h1>
       </div>
 
-  
+
       <main className={styles.gallery}>
         {images3.map((image, index) => (
           <div
-            key={index} 
-            className={styles.galleryItem_3} 
+            key={index}
+            className={styles.galleryItem_3}
             onClick={() => {
               setSelectedImage(image); // 画像をクリックしたらモーダル表示して...
             }}
           >
             <Image src={image.src} alt={image.title} width={300} height={300} />
           </div>
-          
+
         ))}
       </main>
 
-    
 
-      
+
+
 
       {/*画像をクリックした時のモーダル表示するにょ〜ん*/}
       {selectedImage && (
@@ -440,25 +555,25 @@ const GalleryPage = () => {
               <p>{selectedImage.description}</p>
               {/*追加画像*/}
               <div className={styles.additionalImages}>
-      <Image
-        src={selectedImage?.src2 || ""}
-        alt={`${selectedImage?.title || ""} - Additional Image`}
-        width={640}
-        height={320}
-        style={{ objectFit: "cover" }}
-      />
-    </div>
+                <Image
+                  src={selectedImage?.src2 || ""}
+                  alt={`${selectedImage?.title || ""} - Additional Image`}
+                  width={640}
+                  height={320}
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
               {/*追加説明文*/}
               {selectedImage.description2 && <p>{selectedImage.description2}</p>}
               {/*追加画像*/}
               <div className={styles.additionalImages}>
-              <Image
-                src={selectedImage?.src3 || ""}
-                alt={`${selectedImage?.title || ""} - Additional Image`}
-                width={640}
-                height={320}
-                style={{ objectFit: "cover" }}
-              />
+                <Image
+                  src={selectedImage?.src3 || ""}
+                  alt={`${selectedImage?.title || ""} - Additional Image`}
+                  width={640}
+                  height={320}
+                  style={{ objectFit: "cover" }}
+                />
               </div>
               {/*エンジン*/}
               {selectedImage.engine && <p><strong>Engine:</strong> {selectedImage.engine}</p>}
@@ -469,13 +584,84 @@ const GalleryPage = () => {
 
             </div>
           </div>
-          
-  
+
+
         </div>
       )}
-    </div>
+          </div>
+        )}
+        {activeTab === "films" && (
+          <div>
+            {/* 映像ギャラリー */}
+                  <main className={styles.gallery}>
+                    {films.map((film, index) => (
+                      <div
+                        key={index}
+                        className={styles.galleryItem_4}
+                        onClick={() => setSelectedFilm(film)} // サムネイルをクリックしたらモーダルを表示
+                      >
+                        <Image
+                          src={film.thumbnail} // サムネイル画像を表示
+                          alt={film.title}
+                          width={300}
+                          height={300}
+                          className={styles.thumbnail}
+                        />
+                      </div>
+                    ))}
+                  </main>
+            
+                  {/* 映像モーダル */}
+                  {selectedFilm && (
+                    <div
+                      className={styles.modal}
+                      onClick={(e) => {
+                        if (e.target === e.currentTarget) {
+                          closeFilmModal();
+                        }
+                      }}
+                    >
+                      <div className={styles.modalContent}>
+                        <div className={styles.iconWrapper} onClick={closeFilmModal}>
+                          <div className={styles.icon}>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                          </div>
+                        </div>
+            
+                        {/* 動画埋め込み */}
+                        <div className={styles.modalVideoContainer}>
+                          <iframe
+                            src={selectedFilm.movie} // 動画の埋め込みリンクを表示
+                            title={selectedFilm.title}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          ></iframe>
+                        </div>
+            
+                        {/* 説明文 */}
+                        <div className={styles.modalCaption}>
+                          <h3>{selectedFilm.title}</h3>
+                          <p>{selectedFilm.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+          </div>
+        )}
+      </div>
 
-    
+
+
+
+
+
+
+  </div>
+
+
   );
 };
 

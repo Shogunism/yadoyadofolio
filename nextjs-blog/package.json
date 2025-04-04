@@ -1,0 +1,25 @@
+{
+  "name": "nextjs-blog",
+  "version": "1.0.0",
+  "description": "A Next.js blog project that dynamically fetches and displays articles from markdown files.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "gray-matter": "^4.0.3",
+    "remark": "^14.0.2",
+    "remark-html": "^14.0.2"
+  },
+  "devDependencies": {
+    "typescript": "latest",
+    "@types/react": "latest",
+    "@types/node": "latest"
+  },
+  "license": "MIT"
+}
