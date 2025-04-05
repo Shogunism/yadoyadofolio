@@ -1,2 +1,2 @@
 # おひょひasaaaaaaaあああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああょ〜〜〜〜〜ん
-![image.png](/gallery_wall_original.png "sample")
+![image.png](/images/Articles/a_1/gallery_wall_original.png "sample")

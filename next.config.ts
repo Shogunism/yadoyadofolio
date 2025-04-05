@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
 
 module.exports = {
   images: {
-    domains: ["localhost"], // ここにホスト名を追加
+    domains: [], // ここにホスト名を追加
   },
 };
 
