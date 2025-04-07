@@ -23,35 +23,35 @@ import styles from "../../styles/page.module.css";
               <p>Blender</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
-              <Image src="/images/skills/html.png" alt="HTML" width={70} height={70} />
+              <Image src="/images/Skills/html.png" alt="HTML" width={70} height={70} />
               <p>HTML</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
-              <Image src="/images/skills/css.png" alt="CSS" width={70} height={70} />
+              <Image src="/images/Skills/css.png" alt="CSS" width={70} height={70} />
               <p>CSS</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
-              <Image src="/images/skills/java.webp" alt="Java" width={70} height={70} />
+              <Image src="/images/Skills/java.webp" alt="Java" width={70} height={70} />
               <p>Java</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
-              <Image src="/images/skills/c.png" alt="C" width={70} height={70} />
+              <Image src="/images/Skills/c.png" alt="C" width={70} height={70} />
               <p>C</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
-              <Image src="/images/skills/javascript.png" alt="Javasrcipt" width={70} height={70} />
+              <Image src="/images/Skills/javascript.png" alt="Javasrcipt" width={70} height={70} />
               <p>Javascript</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
-              <Image src="/images/skills/typescript.webp" alt="Typescript" width={70} height={70} />
+              <Image src="/images/Skills/typescript.webp" alt="Typescript" width={70} height={70} />
               <p>Typescript</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
-              <Image src="/images/skills/nodejs.png" alt="Nodejs" width={70} height={70} />
+              <Image src="/images/Skills/nodejs.png" alt="Nodejs" width={70} height={70} />
               <p>Node.js</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
-              <Image src="/images/skills/react.png" alt="react" width={70} height={70} />
+              <Image src="/images/Skills/react.png" alt="react" width={70} height={70} />
               <p>React</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
           </div>
@@ -65,31 +65,31 @@ import styles from "../../styles/page.module.css";
               <p>Minecraft</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
-              <Image src="/images/interest/camera.svg" alt="camera" width={70} height={70} />
+              <Image src="/images/Interests/camera.svg" alt="camera" width={70} height={70} />
               <p>Photo</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
-              <Image src="/images/interest/movie.svg" alt="movie" width={70} height={70} />
+              <Image src="/images/Interests/movie.svg" alt="movie" width={70} height={70} />
               <p>Movie Edit</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
 
             <div className={styles.Skill_item}>
-              <Image src="/images/interest/server.svg" alt="server" width={70} height={70} />
+              <Image src="/images/Interests/server.svg" alt="server" width={70} height={70} />
               <p>Server</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
 
             <div className={styles.Skill_item}>
-              <Image src="/images/interest/3dmodel.svg" alt="3dmodel" width={70} height={70} />
+              <Image src="/images/Interests/3dmodel.svg" alt="3dmodel" width={70} height={70} />
               <p>3DCG</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
 
             <div className={styles.Skill_item}>
-              <Image src="/images/interest/universe.svg" alt="universe" width={70} height={70} />
+              <Image src="/images/Interests/universe.svg" alt="universe" width={70} height={70} />
               <p>Universe</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
 
             <div className={styles.Skill_item}>
-              <Image src="/images/interest/walking.svg" alt="walk" width={70} height={70} />
+              <Image src="/images/Interests/walking.svg" alt="walk" width={70} height={70} />
               <p>Walking</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
           </div>
