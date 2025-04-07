@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useState } from 'react'; // ReactとuseStateをインポート
 
 const PrivacyPage: React.FC = () => {
   return (

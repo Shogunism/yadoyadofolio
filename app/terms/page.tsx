@@ -1,7 +1,5 @@
 "use client";
 
-import React, { useState } from 'react'; // ReactとuseStateをインポート
-
 const TermsPage: React.FC = () => {
   return (
     <div style={{ textAlign: 'center', padding: '50px' }}>
