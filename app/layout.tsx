@@ -7,7 +7,7 @@ import '../styles/globals.css';
 
 // メタデータ定義
 export const metadata = {
-  title: "やどやど - Minecraft豊橋再現　ギャラリー",
+  title: "やどやど",
   description: "Minecraftで豊橋を再現したプロジェクトのギャラリー",
   icons: {
     icon: "/favicon.ico",
@@ -46,6 +46,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="ja">
       <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>やどやど - Minecraft豊橋再現 ギャラリー</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content={viewport.width} />
         <meta name="description" content={metadata.description} />
@@ -81,7 +83,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
         <footer className="footer">
           <div className="footer-logo">
             <Link href="/" style={{ display: 'inline-block' }}>
-              <Image src="/mylogo.png" alt="YADOYADO Logo" width={160} height={80} />
+              <Image src="/mylogo.png" alt="YADOYADO Logo" width={192} height={108} />
             </Link>
           </div>
 
