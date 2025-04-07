@@ -19,7 +19,7 @@ import styles from "../../styles/page.module.css";
           <h1 style={{ textAlign: 'left' }}>Currently Learning...</h1>
           <div className={styles.Skill_list}>
             <div className={styles.Skill_item}>
-              <Image src="/images/skills/blender.png" alt="Blender" width={70} height={70} />
+              <Image src="/images/Skills/blender.png" alt="Blender" width={70} height={70} />
               <p>Blender</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
