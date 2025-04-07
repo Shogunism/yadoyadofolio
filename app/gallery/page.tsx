@@ -307,8 +307,8 @@ const GalleryPage = () => {
   const images3: ImageData[] = [
     {
       src: "/images/3image1.jpeg",
-      src2: "/images/image1-1.png",
-      src3: "/images/image1-2.png",
+      src2: "/images/null.png",
+      src3: "/images/null.png",
       description:
         "大都会の中心駅をテーマに、自分自身でデザインした駅舎です。2010年代の潤沢なリソースのもと建造された駅ビルをイメージし、周辺施設にシームレスに接続する回遊性の高いペデストリアンデッキなどを表現しました。",
       title: "ひばな駅 1:駅舎",

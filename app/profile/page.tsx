@@ -61,35 +61,35 @@ import styles from "../../styles/page.module.css";
           <h1 style={{ textAlign: 'left' }}>　+Interests</h1>
           <div className={styles.Skill_list}>
             <div className={styles.Skill_item}>
-              <Image src="/images/interests/game.svg" alt="Minecraft" width={70} height={70} />
+              <Image src="/images/Interests/game.svg" alt="Minecraft" width={70} height={70} />
               <p>Minecraft</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
-              <Image src="/images/interests/camera.svg" alt="camera" width={70} height={70} />
+              <Image src="/images/interest/camera.svg" alt="camera" width={70} height={70} />
               <p>Photo</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
-              <Image src="/images/interests/movie.svg" alt="movie" width={70} height={70} />
+              <Image src="/images/interest/movie.svg" alt="movie" width={70} height={70} />
               <p>Movie Edit</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
 
             <div className={styles.Skill_item}>
-              <Image src="/images/interests/server.svg" alt="server" width={70} height={70} />
+              <Image src="/images/interest/server.svg" alt="server" width={70} height={70} />
               <p>Server</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
 
             <div className={styles.Skill_item}>
-              <Image src="/images/interests/3dmodel.svg" alt="3dmodel" width={70} height={70} />
+              <Image src="/images/interest/3dmodel.svg" alt="3dmodel" width={70} height={70} />
               <p>3DCG</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
 
             <div className={styles.Skill_item}>
-              <Image src="/images/interests/universe.svg" alt="universe" width={70} height={70} />
+              <Image src="/images/interest/universe.svg" alt="universe" width={70} height={70} />
               <p>Universe</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
 
             <div className={styles.Skill_item}>
-              <Image src="/images/interests/walking.svg" alt="walk" width={70} height={70} />
+              <Image src="/images/interest/walking.svg" alt="walk" width={70} height={70} />
               <p>Walking</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
           </div>
