@@ -471,7 +471,7 @@
 }
 
 .Skill_item p {
-  margin-top: 5px; /* ロゴと文字の間にスペースを追加 */
+  margin-top: 15px; /* ロゴと文字の間にスペースを追加 */
   font-size: 1.0rem; /* フォントサイズを調整 */
   color: #ffffff; /* テキストの色を設定 */
 }
@@ -526,4 +526,8 @@
   max-width: 95%;
   margin: 0 auto;
   margin-bottom: 50px;
+}
+
+.Skill_Top{
+  gap: 20px;
 }

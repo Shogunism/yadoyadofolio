@@ -25,12 +25,12 @@ export const metadata = {
         alt: "Minecraft豊橋再現 Thumbnail",
       },
     ],
-    siteName: "やどやど - Minecraft豊橋再現 ギャラリー",
+    siteName: "やどやど - Minecraft現代建築",
   },
   twitter: {
     card: "summary_large_image",
-    title: "やどやど - Minecraft豊橋再現 ギャラリー",
-    description: "Minecraftで豊橋を再現するプロジェクトのギャラリー",
+    title: "やどやど - Minecraft現代建築",
+    description: "Minecraft,3DCG,Movie Editを駆使したプロジェクトの遂行.",
     images: ["https://yadoyadoportfolio.vercel.app/thumbnail.png"],
   },
 };
@@ -81,9 +81,10 @@ const Layout = ({ children }: { children: ReactNode }) => {
         </main>
 
         <footer className="footer">
+        <div style={{ paddingTop: '30px' }}></div>
           <div className="footer-logo">
             <Link href="/" style={{ display: 'inline-block' }}>
-              <Image src="/mylogo.png" alt="YADOYADO Logo" width={192} height={108} />
+              <Image src="/mylogo.png" alt="YADOYADO Logo" width={128} height={53} />
             </Link>
           </div>
 
@@ -105,6 +106,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
             <Link href="/contact" style={{ color: '#fff', textDecoration: 'none', margin: '0 10px' }}>お問い合わせ</Link>
             <Link href="https://acrobat.adobe.com/id/urn:aaid:sc:AP:61672c67-9693-4c34-a34a-a22770cb0f9f" style={{ color: '#fff', textDecoration: 'none', margin: '0 10px' }}>豊橋再現原則</Link>
           </div>
+          
           <p>&copy; {new Date().getFullYear()} YADOYADO. All rights reserved.</p>
         </footer>
       </body>
