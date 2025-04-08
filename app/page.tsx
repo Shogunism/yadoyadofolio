@@ -67,7 +67,7 @@ const HomePage = () => {
             <source src="/mc_wall.mp4" type="video/mp4" />
             お使いのブラウザは動画タグに対応していません。悲しいですね。
           </video>
-          <h1 className="roboto-font work-string" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', whiteSpace: 'nowrap', fontSize: '3em' }}>About me</h1>
+          <h1 className="Obutton roboto-font work-string" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', whiteSpace: 'nowrap', fontSize: '3em' }}>About me</h1>
           <Link href="/profile">
             <button className="more_detail" onClick={handleButtonClick} style={{ position: 'absolute', top: '70%', left: '50%', transform: 'translate(-50%, -50%)', padding: '10px 20px', fontSize: '1em', cursor: 'pointer', zIndex: '3' }}>プロフィールへ</button>
           </Link>
@@ -87,7 +87,7 @@ const HomePage = () => {
             <source src="/mc_wall_2.mp4" type="video/mp4" />
             お使いのブラウザは動画タグに対応していません。悲しいですね。
           </video>
-          <h1 className="roboto-font work-string" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', whiteSpace: 'nowrap', fontSize: '3em' }}>Gallery</h1>
+          <h1 className=" Obutton roboto-font work-string" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', whiteSpace: 'nowrap', fontSize: '3em' }}>Gallery</h1>
           <Link href="/gallery">
             <button className="more_detail" onClick={handleButtonClick} style={{ position: 'absolute', top: '70%', left: '50%', transform: 'translate(-50%, -50%)', padding: '10px 20px', fontSize: '1em', cursor: 'pointer', zIndex: '3' }}>ギャラリーへ</button>
           </Link>

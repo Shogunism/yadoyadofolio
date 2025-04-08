@@ -168,6 +168,11 @@ a:active {
     font-size: 27px; 
   }
 
+  .Obutton{
+    font-size: 1.5em;
+    margin: 0 20px;
+  }
+
   .header-string {
     font-size: 4em; /* フォントサイズを変更 */
   }
@@ -232,3 +237,4 @@ a:active {
   margin: 0 20px; /* 左右に10pxの間隔を追加 */
   display: inline-block; /* アイコンをインラインブロック要素として扱う */
 }
+
