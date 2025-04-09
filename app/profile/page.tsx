@@ -19,39 +19,59 @@ import styles from "../../styles/page.module.css";
           <h1 style={{ textAlign: 'left' }}>Currently Learning...</h1>
           <div className={styles.Skill_list}>
             <div className={styles.Skill_item}>
+              <div style={{ width: 70 , height: 70 }}>
               <Image src="/images/Skills/blender.png" alt="Blender" width={70} height={70} />
+              </div>
               <p>Blender</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
+            <div style={{ width: 70 , height: 70 }}>
               <Image src="/images/Skills/html.png" alt="HTML" width={70} height={70} />
+            </div>
               <p>HTML</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
+            <div style={{ width: 70 , height: 70 }}>
               <Image src="/images/Skills/css.png" alt="CSS" width={70} height={70} />
+            </div> 
               <p>CSS</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
+            <div style={{ width: 70 , height: 70 }}>
               <Image src="/images/Skills/java.webp" alt="Java" width={70} height={70} />
+            </div>
               <p>Java</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
-              <Image src="/images/Skills/c.png" alt="C" width={70} height={70} />
-              <p>C</p> {/* Blenderのロゴの下に文字を追加 */}
+            <div style={{ width: 70 , height: 70 }}>
+              <Image src="/images/Skills/c.png" alt="C" width={67.2} height={70} />
+            </div> 
+             <p>C</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
+            
             <div className={styles.Skill_item}>
+            <div style={{ width: 70 , height: 70 }}>
               <Image src="/images/Skills/javascript.png" alt="Javasrcipt" width={70} height={70} />
+            </div>
               <p>Javascript</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
+            <div style={{ width: 70 , height: 70 }}>
               <Image src="/images/Skills/typescript.webp" alt="Typescript" width={70} height={70} />
+            </div>
               <p>Typescript</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
+            
             <div className={styles.Skill_item}>
-              <Image src="/images/Skills/nodejs.png" alt="Nodejs" width={70} height={70} />
+            <div style={{ width: 70 , height: 70 }}>
+              <Image src="/images/Skills/nodejs.png" alt="Nodejs" width={62.2222222} height={70} />
+              </div>
               <p>Node.js</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
             <div className={styles.Skill_item}>
-              <Image src="/images/Skills/react.png" alt="react" width={70} height={70} />
+            <div style={{ width: 70 , height: 70 }}>
+              <Image src="/images/Skills/react.png" alt="react" width={70} height={61.9791667} />
+              </div>
               <p>React</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
           </div>

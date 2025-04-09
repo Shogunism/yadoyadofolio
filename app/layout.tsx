@@ -7,14 +7,14 @@ import '../styles/globals.css';
 
 // メタデータ定義
 export const metadata = {
-  title: "やどやど",
-  description: "Minecraftで豊橋を再現したプロジェクトのギャラリー",
+  title: "やどやど - Minecraft現代建築",
+  description: "Minecraft,3DCG,Movie Editを駆使したプロジェクトの遂行.",
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "やどやど - Minecraft豊橋再現 ギャラリー",
-    description: "Minecraftで豊橋を再現したプロジェクトのギャラリー",
+    title: "やどやど - Minecraft現代建築",
+    description: "Minecraft,3DCG,Movie Editを駆使したプロジェクトの遂行.",
     url: "https://yadoyadoportfolio.vercel.app/",
     type: "website",
     images: [
@@ -47,7 +47,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
     <html lang="ja">
       <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>やどやど - Minecraft豊橋再現 ギャラリー</title>
+      <title>やどやど - Minecraft現代建築</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content={viewport.width} />
         <meta name="description" content={metadata.description} />
