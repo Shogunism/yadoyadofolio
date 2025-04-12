@@ -4,5 +4,5 @@ const nextConfig = {
     domains: ["yadoyadofolio-otameshi.vercel.app"], // 外部画像のホスト名を追加
   },
 };
-
+//ばりゅ
 module.exports = nextConfig;
