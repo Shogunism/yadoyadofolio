@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["yadoyadofolio-otameshi.vercel.app"], // 外部画像のホスト名を追加
+    domains: ["yadoyado.me"], // 外部画像のホスト名を追加
   },
 };
-//ばりゅ
+
+//value!!!!
 module.exports = nextConfig;
