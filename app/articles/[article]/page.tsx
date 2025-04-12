@@ -17,7 +17,13 @@ const Article = async ({ params }: ArticleProps) => {
   const styledContent = `
     <style>
       img { max-width: 100%; height: auto; border-radius: 10px; }
-    </style>
+          iframe {
+                  display: block;
+                  width: 40%;
+        margin: 20px auto; /* 上下に20pxの余白を追加し、中央揃え */
+        max-width: 100%; /* レスポンシブ対応 */
+      }
+        </style>
     ${data.content}
   `;
 

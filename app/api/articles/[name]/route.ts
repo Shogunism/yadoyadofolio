@@ -24,7 +24,7 @@ export async function GET(
     const window = new JSDOM("").window;
     const DOMPurify = createDOMPurify(window);
     const rawHtml = await marked(fileContent);
-    const htmlContent = DOMPurify.sanitize(rawHtml);
+    const htmlContent = DOMPurify.sanitize(rawHtml, { ADD_TAGS: ["iframe"], ADD_ATTR: ["allow", "allowfullscreen", "frameborder"] });
 
     const titleMatch = fileContent.match(/^# (.+)$/m);
     const title = titleMatch ? titleMatch[1] : "Untitled";

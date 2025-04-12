@@ -15,11 +15,11 @@ export const metadata = {
   openGraph: {
     title: "やどやど - Minecraft現代建築",
     description: "Minecraft,3DCG,Movie Editを駆使したプロジェクトの遂行.",
-    url: "https://yadoyadoportfolio.vercel.app/",
+    url: "https://yadoyado.me/",
     type: "website",
     images: [
       {
-        url: "https://yadoyadoportfolio.vercel.app/sitethumbnail.png",
+        url: "https://yadoyado.me/sitethumbnail.png",
         width: 1200,
         height: 630,
         alt: "Minecraft豊橋再現 Thumbnail",
@@ -31,7 +31,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "やどやど - Minecraft現代建築",
     description: "Minecraft,3DCG,Movie Editを駆使したプロジェクトの遂行.",
-    images: ["https://yadoyadoportfolio.vercel.app/sitethumbnail.png"],
+    images: ["https://yadoyado.me/sitethumbnail.png"],
   },
 };
 

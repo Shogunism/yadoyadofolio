@@ -70,11 +70,28 @@ import styles from "../../styles/page.module.css";
             </div>
             <div className={styles.Skill_item}>
             <div style={{ width: 70 , height: 70 }}>
-              <Image src="/images/Skills/react.png" alt="react" width={70} height={61.9791667} />
+              <Image src="/images/Skills/react.png" alt="nextjs" width={70} height={61.9791667} />
               </div>
               <p>React</p> {/* Blenderのロゴの下に文字を追加 */}
             </div>
-          </div>
+            <div className={styles.Skill_item}>
+            <div style={{ width: 70 , height: 70 }}>
+              <Image src="/images/Skills/Vercel.svg" alt="vercel" width={70} height={70} />
+              </div>
+              <p>Vercel</p> {/* Blenderのロゴの下に文字を追加 */}
+            </div>
+
+            <div className={styles.Skill_item}>
+            <div style={{ width: 70 , height: 70 }}>
+              <Image src="/images/Skills/Cloudflare.svg" alt="Cloudflare" width={70} height={70} />
+              </div>
+              <p>Cloudflare</p> {/* Blenderのロゴの下に文字を追加 */}
+            </div>
+
+            </div>
+
+
+
         </div>
 
         <div className={styles.Skill_Box}>

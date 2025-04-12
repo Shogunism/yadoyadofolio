@@ -64,7 +64,7 @@ const ContactPage = () => {
           />
         </div>
         <div style={{ marginBottom: '20px' }}>
-          <label htmlFor="email">メールアドレス</label>
+          <label htmlFor="email">ご自身の メールアドレス</label>
           <input
             type="email"
             id="email"

@@ -24,11 +24,16 @@ export async function GET() {
       ? `${process.env.NEXT_PUBLIC_BASE_URL}${thumbnailMatch[1]}`
       : null; // 絶対パスに変換
 
+    // タグを取得（Tags: の行）
+    const tagsMatch = fileContent.match(/^Tags:\s*(.+)$/m);
+    const tags = tagsMatch ? tagsMatch[1].split(",").map(tag => tag.trim()) : [];
+
     return {
       name: file.replace(".md", ""), // 拡張子を除いたファイル名
       path: `/articles/${file.replace(".md", "")}`, // 記事へのパス
       title, // 記事のタイトル
       thumbnail, // 記事のサムネイル
+      tags, // タグを追加
     };
   });
 
