@@ -333,6 +333,12 @@
     font-size: 2.0rem;
     /* フォントサイズを設定 */
   }
+
+  .Skill_item {
+    width: 120px !important; /* 必要に応じて幅を調整 */
+  }
+  
+
 }
 
 @media (max-width: 800px) {
@@ -340,6 +346,15 @@
     font-size: 1rem;
     /* フォントサイズを設定 */
   }
+
+  .Skill_item {
+    width: 80px !important; /* 必要に応じて幅を調整 */
+  }
+
+  .Profile_Top {
+    display: block !important;
+  }
+  
 }
 
 
@@ -458,7 +473,7 @@
   display: flex;
 
   flex-wrap: wrap; /* 必要に応じて複数行対応 */
-  gap: 20px; /* 各スキル間のスペース */
+  gap: 0px; /* 各スキル間のスペース */
   justify-content: center; /* 子要素を中央揃え */
 }
 

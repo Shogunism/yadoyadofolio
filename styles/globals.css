@@ -162,15 +162,10 @@ a:active {
   text-align: center;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1100px) {
   .nav_string {
     margin: 0 20px;
     font-size: 27px; 
-  }
-
-  .Obutton{
-    font-size: 1.5em;
-    margin: 0 20px;
   }
 
   .header-string {
@@ -188,15 +183,6 @@ a:active {
   .header-video {
     height: 400px; /* 動画の高さを変更 */
   }
-
-  .work-string {
-    font-size: 1.6em !important;
-  }
-
-  .more_detail {
-    font-size : 0.7em !important;
-  }
-
 }
 
 @media (max-width: 600px) {
@@ -238,3 +224,16 @@ a:active {
   display: inline-block; /* アイコンをインラインブロック要素として扱う */
 }
 
+
+.box1 {
+  padding: 0.1em 1.0em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: #ffffff;/*文字色*/
+  border: solid 3px #ffffff;/*線*/
+  border-radius: 1vw;/*角の丸み*/
+}
+.box1 p {
+  margin: 0; 
+  padding: 0;
+}

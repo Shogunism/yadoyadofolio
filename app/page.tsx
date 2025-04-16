@@ -54,11 +54,11 @@ const HomePage = () => {
         </div>
       </header>
 
-      <div style={{ textAlign: 'center', paddingTop: '30px', zIndex: '2', position: 'relative', backgroundColor: '#2c2c2c', color: '#ffffff' }}>
+      <div style={{ textAlign: 'center', paddingTop: '1vw', zIndex: '2', position: 'relative', backgroundColor: '#2c2c2c', color: '#ffffff' }}>
         <div style={{ position: 'relative', display: 'inline-block' }}>
           <video
             ref={videoRef1}
-            style={{ width: '66%', height: 'auto' }}
+            style={{ width: '80%', height: 'auto' }}
             onMouseEnter={() => handleMouseEnter(videoRef1)}
             onMouseLeave={() => handleMouseLeave(videoRef1)}
             onEnded={() => handleVideoEnd(videoRef1)}
@@ -67,9 +67,12 @@ const HomePage = () => {
             <source src="/mc_wall.mp4" type="video/mp4" />
             お使いのブラウザは動画タグに対応していません。悲しいですね。
           </video>
-          <h1 className="Obutton roboto-font work-string" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', whiteSpace: 'nowrap', fontSize: '3em' }}>About me</h1>
           <Link href="/profile">
-            <button className="more_detail" onClick={handleButtonClick} style={{ position: 'absolute', top: '70%', left: '50%', transform: 'translate(-50%, -50%)', padding: '10px 20px', fontSize: '1em', cursor: 'pointer', zIndex: '3' }}>プロフィールへ</button>
+          <h1 className="roboto-font work-string" style={{ position: 'absolute', top: '53%', left: '50%', transform: 'translate(-50%, -50%)', whiteSpace: 'nowrap', fontSize: '3vw' }}>
+          <div className="box1">
+            About me
+            </div>
+            </h1>
           </Link>
         </div>
       </div>
@@ -78,7 +81,7 @@ const HomePage = () => {
         <div style={{ position: 'relative', display: 'inline-block' }}>
           <video
             ref={videoRef2}
-            style={{ width: '66%', height: 'auto' }}
+            style={{ width: '80%', height: 'auto' }}
             onMouseEnter={() => handleMouseEnter(videoRef2)}
             onMouseLeave={() => handleMouseLeave(videoRef2)}
             onEnded={() => handleVideoEnd(videoRef2)}
@@ -87,9 +90,12 @@ const HomePage = () => {
             <source src="/mc_wall_2.mp4" type="video/mp4" />
             お使いのブラウザは動画タグに対応していません。悲しいですね。
           </video>
-          <h1 className=" Obutton roboto-font work-string" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', whiteSpace: 'nowrap', fontSize: '3em' }}>Gallery</h1>
           <Link href="/gallery">
-            <button className="more_detail" onClick={handleButtonClick} style={{ position: 'absolute', top: '70%', left: '50%', transform: 'translate(-50%, -50%)', padding: '10px 20px', fontSize: '1em', cursor: 'pointer', zIndex: '3' }}>ギャラリーへ</button>
+          <h1 className="roboto-font work-string" style={{ position: 'absolute', top: '53%', left: '50%', transform: 'translate(-50%, -50%)', whiteSpace: 'nowrap', fontSize: '3vw' }}>
+            <div className = "box1">
+              Gallery
+            </div>              
+            </h1>
           </Link>
         </div>
       </div>
