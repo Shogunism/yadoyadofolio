@@ -550,7 +550,7 @@
 
 .cp_tag01 {
   list-style: none;
-  margin: 20px 0; /* 上下に20pxの隙間を設定 */
+  margin: 20px 0; 
   overflow: hidden;
 
   position: absolute;
