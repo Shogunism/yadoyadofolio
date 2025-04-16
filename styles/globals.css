@@ -234,16 +234,12 @@ a:active {
   border-radius: 1vw;/*角の丸み*/
 }
 
-.box1 p {
-  margin: 0; 
-  padding: 0;
+.box1 {
+  margin: 10px; 
+  padding: 5px;
 }
 
-.box1 :hover{
-  padding: 0.1em 1.0em;
-  margin: 2em 0;
-  font-weight: bold;
-  color: #999999;/*文字色*/
-  border: solid 3px #999999;/*線*/
-  border-radius: 1vw;/*角の丸み*/
+.box1:hover{
+  color: #dddddd; /* ホバー時の背景色 */
+  border: solid 3px #dddddd;/*線*/
 }
