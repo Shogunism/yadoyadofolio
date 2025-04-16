@@ -16,7 +16,7 @@ import styles from "../../styles/page.module.css";
           </main>
         </div>
         <div className={styles.Skill_Box}>
-          <h1 style={{ textAlign: 'left' }}>Currently Learning...</h1>
+          <h1 className = {styles.skill_fontsize}style={{ textAlign: 'left', }}>Currently Learning...</h1>
           <div className={styles.Skill_list}>
             <div className={styles.Skill_item}>
               <div style={{ width: 70 , height: 70 }}>
@@ -95,7 +95,7 @@ import styles from "../../styles/page.module.css";
         </div>
 
         <div className={styles.Skill_Box}>
-          <h1 style={{ textAlign: 'left' }}>　+Interests</h1>
+          <h1 className = {styles.skill_fontsize} style={{ textAlign: 'left' }}>　+Interests</h1>
           <div className={styles.Skill_list}>
             <div className={styles.Skill_item}>
               <Image src="/images/Interests/game.svg" alt="Minecraft" width={70} height={70} />
