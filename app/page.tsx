@@ -6,13 +6,6 @@ import '../styles/globals.css'; // グローバルCSSをインポート
 const HomePage = () => {
   const videoRef1 = useRef<HTMLVideoElement>(null);
   const videoRef2 = useRef<HTMLVideoElement>(null);
-  const worksRef = useRef<HTMLDivElement>(null);
-
-  const handleButtonClick = () => {
-    if (worksRef.current) {
-      worksRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   const handleMouseLeave = (videoRef: React.RefObject<HTMLVideoElement>) => {
     if (videoRef.current && !videoRef.current.paused) {
