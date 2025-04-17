@@ -37,28 +37,28 @@ const ArticlePage = () => {
       <div>
         {/* タグ一覧 */}
         <ul className={styles.cp_tag01}>
-          <li>
-            <a
-              onClick={() => setFilterTag(null)}
-              className={!filterTag ? "active" : ""} // 全てのタグが選択されている場合に強調表示
-              style={{ cursor: "pointer" }}
-            >
-              ぜんぶ
-            </a>
-          </li>
+  <li>
+    <a
+      onClick={() => setFilterTag(null)}
+      className={!filterTag ? styles.active : ""}
+      style={{ cursor: "pointer" }}
+    >
+      ぜんぶ
+    </a>
+  </li>
 
-          {allTags.map((tag) => (
-            <li key={tag}>
-              <a
-                onClick={() => setFilterTag(tag)}
-                className={filterTag === tag ? "active" : ""} // 選択中のタグを強調表示
-                style={{ cursor: "pointer" }}
-              >
-                {tag}
-              </a>
-            </li>
-          ))}
-        </ul>
+  {allTags.map((tag) => (
+    <li key={tag}>
+      <a
+        onClick={() => setFilterTag(tag)}
+        className={filterTag === tag ? styles.active : ""}
+        style={{ cursor: "pointer" }}
+      >
+        {tag}
+      </a>
+    </li>
+  ))}
+</ul>
       </div>
       <div style={{ margin: "60px" }}></div>
 

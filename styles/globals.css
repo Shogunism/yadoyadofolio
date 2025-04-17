@@ -154,7 +154,7 @@ a:active {
 
 .header-content {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #ffffff;
@@ -177,7 +177,7 @@ a:active {
   }
 
   .header {
-    height: 400px; /* ヘッダーの高さを変更 */
+    height: 350px; /* ヘッダーの高さを変更 */
   }
 
   .header-video {
@@ -201,11 +201,15 @@ a:active {
   }
 
   .header {
-    height: 300px; /* ヘッダーの高さを変更 */
+    height: 250px; /* ヘッダーの高さを変更 */
   }
 
   .header-video {
     height: 300px; /* 動画の高さを変更 */
+  }
+
+  .header-content {
+    font-size: 15px;
   }
 }
 

@@ -613,10 +613,20 @@
 	border-radius: 4px;
 }
 .cp_tag01 a:hover {
-	color: #c2c2c2;
-	background-color: #ec407a;
+	color: #000000;
+	background-color: #cfd8dc;
 }
-.cp_tag01 a:hover::after {
-	border-left-color: #ec407a;
+.cp_tag01 a:hover:active {
+	border-left-color: #cfd8dc;
 }
 
+
+.cp_tag01 a.active {
+  color: #000000; /* テキスト色を白に変更 */
+  background-color: #ec407a; /* 背景色をオレンジに変更 */
+  font-weight: bold; /* 太字にする */
+}
+
+.cp_tag01 a.active::after {
+  border-left-color: #ec407a; /* 矢印の色を背景色と一致させる */
+}
