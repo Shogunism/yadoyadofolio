@@ -28,8 +28,6 @@ const ArticlePage = () => {
 
   const allTags = Array.from(new Set(articles.flatMap((article) => article.tags))); // 全タグを取得
 
-  const allDays = Array.from(new Set(articles.flatMap((article) => article.tags))); // 全タグを取得
-
   if (loading) {
     return <div className={styles.Loading}>Loading Articles...</div>; // 読み込み中の表示
   }
