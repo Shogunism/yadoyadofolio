@@ -7,7 +7,9 @@ async function getArticleContent(article: string) {
   if (!res.ok) {
     throw new Error("Article not found");
   }
-  return res.json();
+  const data = await res.json();
+  console.log("API Response:", data); // デバッグ用ログ
+  return data;
 }
 
 const Article = async ({ params }: ArticleProps) => {
@@ -17,19 +19,26 @@ const Article = async ({ params }: ArticleProps) => {
   const styledContent = `
     <style>
       img { max-width: 100%; height: auto; border-radius: 10px; }
-          iframe {
-                  display: block;
-                  width: 40%;
-        margin: 20px auto; /* 上下に20pxの余白を追加し、中央揃え */
-        max-width: 100%; /* レスポンシブ対応 */
+      iframe {
+        display: block;
+        width: 80%;
+        margin: 20px auto;
+        max-width: 100%;
       }
-        </style>
+      a {
+        text-decoration: underline; /* リンクの下線を表示 */
+        color: inherit; /* テキストの色を継承 */
+      }
+      span {
+        display: inline; /* spanタグをインライン表示 */
+      }
+    </style>
     ${data.content}
   `;
 
   return (
     <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-      <div style={{ width: "90%", margin: "0 auto" }} dangerouslySetInnerHTML={{ __html: styledContent }} />
+      <div style={{ width: "60%", margin: "0 auto" }} dangerouslySetInnerHTML={{ __html: styledContent }} />
     </div>
   );
 };

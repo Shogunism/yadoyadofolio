@@ -630,3 +630,7 @@
 .cp_tag01 a.active::after {
   border-left-color: #ec407a; /* 矢印の色を背景色と一致させる */
 }
+
+.blue-text {
+  color: blue;
+}

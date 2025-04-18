@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const ArticlePage = () => {
   const [articles, setArticles] = useState<
-    { name: string; path: string; title: string; thumbnail: string | null; tags: string[] }[]
+    { name: string; path: string; title: string; thumbnail: string | null; tags: string[]; }[]
   >([]);
   const [loading, setLoading] = useState(true); // 読み込み中の状態を管理
   const [filterTag, setFilterTag] = useState<string | null>(null);
@@ -16,6 +16,7 @@ const ArticlePage = () => {
     fetch(`${window.location.origin}/api/articles`)
       .then((res) => res.json())
       .then((data) => {
+        console.log("Fetched Articles:", data); // デバッグ用ログ
         setArticles(data); // 記事データをセット
         setLoading(false); // 読み込み完了
       });
@@ -26,6 +27,8 @@ const ArticlePage = () => {
     : articles;
 
   const allTags = Array.from(new Set(articles.flatMap((article) => article.tags))); // 全タグを取得
+
+  const allDays = Array.from(new Set(articles.flatMap((article) => article.tags))); // 全タグを取得
 
   if (loading) {
     return <div className={styles.Loading}>Loading Articles...</div>; // 読み込み中の表示
