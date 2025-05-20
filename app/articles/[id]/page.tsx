@@ -1,43 +1,42 @@
 import { client } from "@/libs/client";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 
-type Props = {
-  params: {
+type PageProps = {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
-export default async function ArticleDetailPage({ params }: Props) {
+export default async function ArticleDetailPage({ params }: PageProps) {
+  const resolvedParams = await params; // params を非同期で解決
   try {
     const blog = await client.get({
       endpoint: "blogs",
-      contentId: params.id,
+      contentId: resolvedParams.id, // 解決済みの params を使用
     });
 
     return (
       <div style={{ padding: "40px" }}>
-        <style>
-          {`
-            img {
-              max-width: 80%;
-              center: 50%;
-              height: auto;
-            }
-          `}
-        </style>
         <h1>{blog.title}</h1>
         {blog.eyecatch && (
-          <img
+          <Image
             src={blog.eyecatch.url}
             alt="アイキャッチ画像"
             width={blog.eyecatch.width}
             height={blog.eyecatch.height}
+            style={{
+              maxWidth: "80%",
+              display: "block",
+              margin: "0 auto",
+              height: "auto",
+            }}
           />
         )}
         <div dangerouslySetInnerHTML={{ __html: blog.content }} />
       </div>
     );
-  } catch (e) {
-    notFound(); // microCMSに記事が存在しない場合に 404 にします
+  } catch {
+    notFound();
   }
 }

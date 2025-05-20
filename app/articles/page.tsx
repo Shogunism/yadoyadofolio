@@ -33,7 +33,7 @@ export default async function ArticleListPage() {
                         alt={article.title}
                         width={288}
                         height={162}
-                        style={{ objectFit: "cover", width: "90%" }}
+                        style={{ objectFit: "cover" }}
                       />
                     )}
                     <h2>{article.title}</h2>
