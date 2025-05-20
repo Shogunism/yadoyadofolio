@@ -9,11 +9,11 @@ type PageProps = {
 };
 
 export default async function ArticleDetailPage({ params }: PageProps) {
-  const resolvedParams = await params; // params を非同期で解決
+  const resolvedParams = await params; 
   try {
     const blog = await client.get({
       endpoint: "blogs",
-      contentId: resolvedParams.id, // 解決済みの params を使用
+      contentId: resolvedParams.id, 
     });
 
     return (
