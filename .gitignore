@@ -42,3 +42,6 @@ next-env.d.ts
 
 node_modules/
 .next/
+public/images/Articles/a_3/area.jpeg
+public/images/mu.jpg
+public/images/pwd.png
