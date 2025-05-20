@@ -9,11 +9,16 @@ type PageProps = {
 };
 
 export default async function ArticleDetailPage({ params }: PageProps) {
-  const resolvedParams = await params; 
+  const resolvedParams = await params;
+
   try {
+    if (!process.env.MICROSIMS_SERVICE_DOMAIN || !process.env.MICROSIMS_API_KEY) {
+      throw new Error("Missing serviceDomain or apiKey in environment variables");
+    }
+
     const blog = await client.get({
       endpoint: "blogs",
-      contentId: resolvedParams.id, 
+      contentId: resolvedParams.id,
     });
 
     return (
@@ -36,7 +41,8 @@ export default async function ArticleDetailPage({ params }: PageProps) {
         <div dangerouslySetInnerHTML={{ __html: blog.content }} />
       </div>
     );
-  } catch {
+  } catch (error) {
+    console.error("Error fetching blog data:", error);
     notFound();
   }
 }

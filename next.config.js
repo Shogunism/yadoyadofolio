@@ -5,4 +5,10 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = {
+  ...nextConfig,
+  env: {
+    SERVICE_DOMAIN: process.env.MICROSIMS_SERVICE_DOMAIN,
+    API_KEY: process.env.MICROSIMS_API_KEY,
+  },
+};
