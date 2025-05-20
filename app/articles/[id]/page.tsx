@@ -12,8 +12,8 @@ export default async function ArticleDetailPage({ params }: PageProps) {
   const resolvedParams = await params;
 
   try {
-    if (!process.env.MICROSIMS_SERVICE_DOMAIN || !process.env.MICROSIMS_API_KEY) {
-      throw new Error("Missing serviceDomain or apiKey in environment variables");
+    if (!process.env.MICROCMS_SERVICE_DOMAIN || !process.env.MICROCMS_API_KEY) {
+      throw new Error("Missing MICROCMS_SERVICE_DOMAIN or MICROCMS_API_KEY in environment variables");
     }
 
     const blog = await client.get({

@@ -15,8 +15,8 @@ type Article = {
 
 export default async function ArticleListPage() {
   try {
-    if (!process.env.SERVICE_DOMAIN || !process.env.API_KEY) {
-      throw new Error("Missing serviceDomain or apiKey in environment variables");
+    if (!process.env.MICROCMS_SERVICE_DOMAIN || !process.env.MICROCMS_API_KEY) {
+      throw new Error("Missing MICROCMS_SERVICE_DOMAIN or MICROCMS_API_KEY in environment variables");
     }
 
     const data = await client.get({ endpoint: "blogs" });
