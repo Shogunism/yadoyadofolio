@@ -46,6 +46,12 @@ export default function BlogContent({ blog }: BlogContentProps) {
           display: block; /* ブロック要素として表示 */
           margin: 0 auto; /* 中央寄せ */
         }
+        div :global(img) {
+          max-width: 80%; /* blog.content 内の画像にも適用 */
+          height: auto;
+          display: block;
+          margin: 0 auto;
+        }
       `}</style>
     </div>
   );
