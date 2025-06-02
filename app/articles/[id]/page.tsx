@@ -1,17 +1,17 @@
 import { client } from "@/libs/client"; // microCMSクライアントをインポート
 import { notFound } from "next/navigation"; // ページが見つからない場合の処理を提供
-import Image from "next/image"; // 画像表示用のNext.jsコンポーネントをインポート
 import BlogContent from "./BlogContent"; // クライアントコンポーネントをデフォルトインポート
 
 // ページコンポーネントのプロパティ型定義
 type PageProps = {
-  params: {
+  params: Promise<{
     id: string; // 記事IDを含むプロパティ
-  };
+  }>;
 };
 
 // 記事詳細ページのサーバーコンポーネント
 export default async function ArticleDetailPage({ params }: PageProps) {
+  const resolvedParams = await params; // Promiseを解決
   try {
     // 必須の環境変数が設定されているか確認
     if (!process.env.MICROCMS_SERVICE_DOMAIN || !process.env.MICROCMS_API_KEY) {
@@ -21,7 +21,7 @@ export default async function ArticleDetailPage({ params }: PageProps) {
     // microCMSから記事データを取得
     const blog = await client.get({ 
       endpoint: "blogs", // microCMSのエンドポイント名
-      contentId: params.id, // 解決済みのIDを使用
+      contentId: resolvedParams.id, // 解決済みのIDを使用
     });
 
     // 記事データをクライアントコンポーネントに渡す
