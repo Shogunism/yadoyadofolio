@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 
 type BlogContentProps = {
@@ -14,43 +15,61 @@ type BlogContentProps = {
   };
 };
 
-// BlogContent コンポーネントをデフォルトエクスポート
 export default function BlogContent({ blog }: BlogContentProps) {
+  useEffect(() => {
+    // blog.content 内の画像に対して強制的にスタイルを適用
+    const images = document.querySelectorAll(".blog-content img");
+    images.forEach((img) => {
+      const imageElement = img as HTMLImageElement;
+      imageElement.style.width = "80%";
+      imageElement.style.maxWidth = "80%";
+      imageElement.style.height = "auto";
+      imageElement.style.display = "block";
+      imageElement.style.margin = "0 auto";
+
+      // 属性で指定された幅・高さも無効化
+      imageElement.removeAttribute("width");
+      imageElement.removeAttribute("height");
+    });
+  }, []);
+
   return (
     <div style={{ padding: "40px" }}>
-      <h1>{blog.title}</h1> {/* 記事タイトルを表示 */}
-      {blog.eyecatch && ( // アイキャッチ画像が存在する場合に表示
+      <h1>{blog.title}</h1>
+
+      {blog.eyecatch && (
         <Image
-          src={blog.eyecatch.url} // 画像URL
-          alt="アイキャッチ画像" // 代替テキスト
-          width={blog.eyecatch.width} // 画像幅
-          height={blog.eyecatch.height} // 画像高さ
+          src={blog.eyecatch.url}
+          alt="アイキャッチ画像"
+          width={blog.eyecatch.width}
+          height={blog.eyecatch.height}
           style={{
-            maxWidth: "80%", // 最大幅を80%に制限
-            display: "block", // ブロック要素として表示
-            margin: "0 auto", // 中央寄せ
-            height: "auto", // 高さを自動調整
+            maxWidth: "80%",
+            display: "block",
+            margin: "0 auto",
+            height: "auto",
           }}
         />
       )}
-      <div 
-        dangerouslySetInnerHTML={{ __html: blog.content }} 
-        style={{
-          maxWidth: "100%", // コンテンツ全体の最大幅
-        }}
+
+      <div
+        className="blog-content"
+        dangerouslySetInnerHTML={{ __html: blog.content }}
       />
+
       <style jsx global>{`
-        img {
-          max-width: 80%; /* 画像の最大幅を80%に制限 */
-          height: auto; /* 高さを自動調整 */
-          display: block; /* ブロック要素として表示 */
-          margin: 0 auto; /* 中央寄せ */
+        .blog-content img {
+          max-width: 80% !important;
+          height: auto !important;
+          display: block !important;
+          margin: 0 auto !important;
         }
-        div :global(img) {
-          max-width: 80%; /* blog.content 内の画像にも適用 */
-          height: auto;
-          display: block;
-          margin: 0 auto;
+
+        /* スマホでも調整したい場合（任意） */
+        @media (max-width: 600px) {
+          .blog-content img {
+            max-width: 100% !important;
+          }
         }
       `}</style>
     </div>
