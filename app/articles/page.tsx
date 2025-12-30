@@ -47,7 +47,7 @@ export default async function ArticleListPage() {
                           style={{ objectFit: "cover" }}
                         />
                       )}
-                      <h2>{article.title}</h2>
+                      <h2 style={{ width: "288px", wordWrap: "break-word" }}>{article.title}</h2>
                     </div>
                   </Link>
                 </li>
