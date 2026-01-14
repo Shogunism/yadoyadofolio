@@ -45,6 +45,7 @@
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   cursor: pointer;
   overflow: hidden;
+  position: relative;
 }
 
 .galleryItem_4 {
@@ -57,6 +58,7 @@
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   cursor: pointer;
   overflow: hidden;
+  position: relative;
 }
 
 .galleryItem_3 {
@@ -69,6 +71,7 @@
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   cursor: pointer;
   overflow: hidden;
+  position: relative;
 }
 
 .galleryItem_2 {
@@ -81,6 +84,7 @@
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   cursor: pointer;
   overflow: hidden;
+  position: relative;
 }
 
 .galleryItem:hover {
@@ -464,7 +468,7 @@
   font-size: 4rem;
   margin-bottom: 0px;
 }
-.ProfileSubttitle {
+.ProfileSubttile {
   font-weight: 300; /* 細字に設定 */
   font-size: 1.0rem;
   padding-bottom: 20px;
@@ -633,4 +637,41 @@
 
 .blue-text {
   color: blue;
+}
+
+/* いいねボタンのスタイル */
+.likeButton {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.likeButton:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+}
+
+.likeButton.liked {
+  background-color: rgba(255, 192, 203, 0.9);
+  box-shadow: 0 2px 12px rgba(255, 20, 147, 0.4);
+}
+
+.likeButton.liked:hover {
+  background-color: rgba(255, 192, 203, 1);
+}
+
+.likeCount {
+  font-weight: bold;
+  color: #333;
 }

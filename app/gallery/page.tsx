@@ -7,7 +7,7 @@ import styles from "../../styles/page.module.css";
 
 type ImageData = {
   src: string;
-
+  id: string;
   title: string;
   description: string;
   src2: string;
@@ -24,15 +24,28 @@ type FilmData = {
   thumbnail: string; // サムネイル画像のURL
 };
 
-
-
-
-
 const GalleryPage = () => {
   const [selectedImage, setSelectedImage] = useState<ImageData | null>(null);
   const [activeTab, setActiveTab] = useState<"photos" | "films">("photos"); // 現在のタブを管理
   const [selectedFilm, setSelectedFilm] = useState<FilmData | null>(null);
-  
+  const [likes, setLikes] = useState<{ [key: string]: number }>({});
+  const [likedImages, setLikedImages] = useState<{ [key: string]: boolean }>({});
+
+  // LocalStorageからいいね状態を読み込む
+  useEffect(() => {
+    const savedLikes = localStorage.getItem('likedImages');
+    if (savedLikes) {
+      setLikedImages(JSON.parse(savedLikes));
+    }
+  }, []);
+
+  // いいね状態をLocalStorageに保存
+  const saveLikedState = (imageId: string, isLiked: boolean) => {
+    const newLikedState = { ...likedImages, [imageId]: isLiked };
+    setLikedImages(newLikedState);
+    localStorage.setItem('likedImages', JSON.stringify(newLikedState));
+  };
+
   useEffect(() => {
       if (selectedFilm) {
         document.body.style.overflow = "hidden"; // モーダル表示中はスクロールを防止
@@ -64,6 +77,48 @@ const GalleryPage = () => {
 
   const closeImage = () => {
     setSelectedImage(null);
+  };
+
+  // いいね数を取得する関数
+  const fetchLikes = async (imageId: string) => {
+    try {
+      const response = await fetch(`/api/likes?imageId=${imageId}`);
+      if (response.ok) {
+        const data = await response.json();
+        setLikes(prev => ({ ...prev, [imageId]: data.likes }));
+      }
+    } catch (error) {
+      console.error('Error fetching likes:', error);
+    }
+  };
+
+  // いいねボタンをクリックした時の処理
+  const handleLike = async (e: React.MouseEvent, imageId: string) => {
+    e.stopPropagation(); // 画像クリックイベントを防ぐ
+    
+    const isCurrentlyLiked = likedImages[imageId] || false;
+    const shouldLike = !isCurrentlyLiked;
+
+    try {
+      const response = await fetch('/api/likes', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          imageId, 
+          increment: shouldLike 
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setLikes(prev => ({ ...prev, [imageId]: data.likes }));
+        saveLikedState(imageId, shouldLike);
+      }
+    } catch (error) {
+      console.error('Error updating likes:', error);
+    }
   };
 
   const films: FilmData[] = [
@@ -105,6 +160,7 @@ const GalleryPage = () => {
 
   const images: ImageData[] = [
     {
+      id: "toyohashi-1",
       src: "/images/image1.png",
       src2: "/images/image1-1.png",
       src3: "/images/image1-2.png",
@@ -117,6 +173,7 @@ const GalleryPage = () => {
       real_location: "豊橋駅前大通２丁目",
     },
     {
+      id: "toyohashi-2",
       src: "/images/image2.png",
       src2: "/images/image2-2.png",
       src3: "/images/image2-3.png",
@@ -130,6 +187,7 @@ const GalleryPage = () => {
     },
 
     {
+      id: "toyohashi-3",
       src: "/images/image3.png",
       src2: "/images/image3-2.png",
       src3: "/images/image3-3.png",
@@ -142,6 +200,7 @@ const GalleryPage = () => {
       real_location: "豊橋駅前大通２丁目",
     },
     {
+      id: "toyohashi-4",
       src: "/images/image4.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -155,6 +214,7 @@ const GalleryPage = () => {
     },
 
     {
+      id: "toyohashi-5",
       src: "/images/image5-2.jpeg",
       src2: "/images/image5.png",
       src3: "/images/image5-3.png",
@@ -168,6 +228,7 @@ const GalleryPage = () => {
     },
 
     {
+      id: "toyohashi-6",
       src: "/images/image6.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -181,6 +242,7 @@ const GalleryPage = () => {
     },
 
     {
+      id: "toyohashi-7",
       src: "/images/image7.jpeg",
       src2: "/images/image7-2.jpeg",
       src3: "/images/null.png",
@@ -194,6 +256,7 @@ const GalleryPage = () => {
     },
 
     {
+      id: "toyohashi-8",
       src: "/images/image8.jpeg",
       src2: "/images/image8-2.jpeg",
       src3: "/images/null.png",
@@ -207,6 +270,7 @@ const GalleryPage = () => {
     },
 
     {
+      id: "toyohashi-9",
       src: "/images/image9.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -220,6 +284,7 @@ const GalleryPage = () => {
     },
 
     {
+      id: "toyohashi-10",
       src: "/images/image10.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -237,6 +302,7 @@ const GalleryPage = () => {
 
   const images2: ImageData[] = [
     {
+      id: "architecture-1",
       src: "/images/2image1.jpeg",
       src2: "/images/2image1-2.jpeg",
       src3: "/images/null.png",
@@ -250,6 +316,7 @@ const GalleryPage = () => {
     },
 
     {
+      id: "architecture-2",
       src: "/images/2image2.jpeg",
       src2: "/images/2image2-2.jpeg",
       src3: "/images/null.png",
@@ -263,6 +330,7 @@ const GalleryPage = () => {
     },
 
     {
+      id: "architecture-3",
       src: "/images/2image3.jpeg",
       src2: "/images/2image3-2.jpeg",
       src3: "/images/2image3-3.jpeg",
@@ -276,6 +344,7 @@ const GalleryPage = () => {
     },
 
     {
+      id: "architecture-4",
       src: "/images/2image4.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -289,6 +358,7 @@ const GalleryPage = () => {
     },
 
     {
+      id: "architecture-5",
       src: "/images/2image5.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -306,6 +376,7 @@ const GalleryPage = () => {
 
   const images3: ImageData[] = [
     {
+      id: "original-1",
       src: "/images/3image1.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -318,6 +389,7 @@ const GalleryPage = () => {
     },
 
     {
+      id: "original-2",
       src: "/images/3image2.png",
       src2: "/images/3image2-2.jpeg",
       src3: "/images/3image2-3.jpeg",
@@ -330,6 +402,7 @@ const GalleryPage = () => {
     },
 
     {
+      id: "original-3",
       src: "/images/3image3.jpeg",
       src2: "/images/3image3-2.jpeg",
       src3: "/images/3image3-3.jpeg",
@@ -342,6 +415,7 @@ const GalleryPage = () => {
     },
 
     {
+      id: "original-4",
       src: "/images/3image4.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -354,6 +428,7 @@ const GalleryPage = () => {
     },
 
     {
+      id: "original-5",
       src: "/images/3image5.jpeg",
       src2: "/images/3image5-2.jpeg",
       src3: "/images/3image5-3.jpeg",
@@ -366,6 +441,7 @@ const GalleryPage = () => {
     },
 
     {
+      id: "original-6",
       src: "/images/3image6.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -378,6 +454,7 @@ const GalleryPage = () => {
     },
 
     {
+      id: "original-7",
       src: "/images/3image7.jpeg",
       src2: "/images/3image7-2.jpeg",
       src3: "/images/null.png",
@@ -459,10 +536,18 @@ const GalleryPage = () => {
             key={index}
             className={styles.galleryItem}
             onClick={() => {
-              setSelectedImage(image); // 画像をクリックしたらモーダル表示して...
+              setSelectedImage(image);
+              fetchLikes(image.id); // モーダル表示時にいいね数を取得
             }}
           >
             <Image src={image.src} alt={image.title} width={300} height={300} />
+            {/* いいねボタン */}
+            <div 
+              className={`${styles.likeButton} ${likedImages[image.id] ? styles.liked : ''}`} 
+              onClick={(e) => handleLike(e, image.id)}
+            >
+              {likedImages[image.id] ? '❤️' : '🤍'} <span className={styles.likeCount}>{likes[image.id] || 0}</span>
+            </div>
           </div>
         ))}
       </main>
@@ -480,10 +565,18 @@ const GalleryPage = () => {
             key={index}
             className={styles.galleryItem_2}
             onClick={() => {
-              setSelectedImage(image); // 画像をクリックしたらモーダル表示して...
+              setSelectedImage(image);
+              fetchLikes(image.id); // モーダル表示時にいいね数を取得
             }}
           >
             <Image src={image.src} alt={image.title} width={300} height={300} />
+            {/* いいねボタン */}
+            <div 
+              className={`${styles.likeButton} ${likedImages[image.id] ? styles.liked : ''}`} 
+              onClick={(e) => handleLike(e, image.id)}
+            >
+              {likedImages[image.id] ? '❤️' : '🤍'} <span className={styles.likeCount}>{likes[image.id] || 0}</span>
+            </div>
           </div>
 
         ))}
@@ -503,9 +596,17 @@ const GalleryPage = () => {
             className={styles.galleryItem_3}
             onClick={() => {
               setSelectedImage(image); // 画像をクリックしたらモーダル表示して...
+              fetchLikes(image.id); // モーダル表示時にいいね数を取得
             }}
           >
             <Image src={image.src} alt={image.title} width={300} height={300} />
+            {/* いいねボタン */}
+            <div 
+              className={`${styles.likeButton} ${likedImages[image.id] ? styles.liked : ''}`} 
+              onClick={(e) => handleLike(e, image.id)}
+            >
+              {likedImages[image.id] ? '❤️' : '🤍'} <span className={styles.likeCount}>{likes[image.id] || 0}</span>
+            </div>
           </div>
 
         ))}
