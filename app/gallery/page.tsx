@@ -28,23 +28,6 @@ const GalleryPage = () => {
   const [selectedImage, setSelectedImage] = useState<ImageData | null>(null);
   const [activeTab, setActiveTab] = useState<"photos" | "films">("photos"); // 現在のタブを管理
   const [selectedFilm, setSelectedFilm] = useState<FilmData | null>(null);
-  const [likes, setLikes] = useState<{ [key: string]: number }>({});
-  const [likedImages, setLikedImages] = useState<{ [key: string]: boolean }>({});
-
-  // LocalStorageからいいね状態を読み込む
-  useEffect(() => {
-    const savedLikes = localStorage.getItem('likedImages');
-    if (savedLikes) {
-      setLikedImages(JSON.parse(savedLikes));
-    }
-  }, []);
-
-  // いいね状態をLocalStorageに保存
-  const saveLikedState = (imageId: string, isLiked: boolean) => {
-    const newLikedState = { ...likedImages, [imageId]: isLiked };
-    setLikedImages(newLikedState);
-    localStorage.setItem('likedImages', JSON.stringify(newLikedState));
-  };
 
   useEffect(() => {
       if (selectedFilm) {
@@ -77,48 +60,6 @@ const GalleryPage = () => {
 
   const closeImage = () => {
     setSelectedImage(null);
-  };
-
-  // いいね数を取得する関数
-  const fetchLikes = async (imageId: string) => {
-    try {
-      const response = await fetch(`/api/likes?imageId=${imageId}`);
-      if (response.ok) {
-        const data = await response.json();
-        setLikes(prev => ({ ...prev, [imageId]: data.likes }));
-      }
-    } catch (error) {
-      console.error('Error fetching likes:', error);
-    }
-  };
-
-  // いいねボタンをクリックした時の処理
-  const handleLike = async (e: React.MouseEvent, imageId: string) => {
-    e.stopPropagation(); // 画像クリックイベントを防ぐ
-    
-    const isCurrentlyLiked = likedImages[imageId] || false;
-    const shouldLike = !isCurrentlyLiked;
-
-    try {
-      const response = await fetch('/api/likes', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ 
-          imageId, 
-          increment: shouldLike 
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setLikes(prev => ({ ...prev, [imageId]: data.likes }));
-        saveLikedState(imageId, shouldLike);
-      }
-    } catch (error) {
-      console.error('Error updating likes:', error);
-    }
   };
 
   const films: FilmData[] = [
@@ -535,19 +476,9 @@ const GalleryPage = () => {
           <div
             key={index}
             className={styles.galleryItem}
-            onClick={() => {
-              setSelectedImage(image);
-              fetchLikes(image.id); // モーダル表示時にいいね数を取得
-            }}
+            onClick={() => setSelectedImage(image)}
           >
             <Image src={image.src} alt={image.title} width={300} height={300} />
-            {/* いいねボタン */}
-            <div 
-              className={`${styles.likeButton} ${likedImages[image.id] ? styles.liked : ''}`} 
-              onClick={(e) => handleLike(e, image.id)}
-            >
-              {likedImages[image.id] ? '❤️' : '🤍'} <span className={styles.likeCount}>{likes[image.id] || 0}</span>
-            </div>
           </div>
         ))}
       </main>
@@ -564,19 +495,9 @@ const GalleryPage = () => {
           <div
             key={index}
             className={styles.galleryItem_2}
-            onClick={() => {
-              setSelectedImage(image);
-              fetchLikes(image.id); // モーダル表示時にいいね数を取得
-            }}
+            onClick={() => setSelectedImage(image)}
           >
             <Image src={image.src} alt={image.title} width={300} height={300} />
-            {/* いいねボタン */}
-            <div 
-              className={`${styles.likeButton} ${likedImages[image.id] ? styles.liked : ''}`} 
-              onClick={(e) => handleLike(e, image.id)}
-            >
-              {likedImages[image.id] ? '❤️' : '🤍'} <span className={styles.likeCount}>{likes[image.id] || 0}</span>
-            </div>
           </div>
 
         ))}
@@ -594,19 +515,9 @@ const GalleryPage = () => {
           <div
             key={index}
             className={styles.galleryItem_3}
-            onClick={() => {
-              setSelectedImage(image); // 画像をクリックしたらモーダル表示して...
-              fetchLikes(image.id); // モーダル表示時にいいね数を取得
-            }}
+            onClick={() => setSelectedImage(image)}
           >
             <Image src={image.src} alt={image.title} width={300} height={300} />
-            {/* いいねボタン */}
-            <div 
-              className={`${styles.likeButton} ${likedImages[image.id] ? styles.liked : ''}`} 
-              onClick={(e) => handleLike(e, image.id)}
-            >
-              {likedImages[image.id] ? '❤️' : '🤍'} <span className={styles.likeCount}>{likes[image.id] || 0}</span>
-            </div>
           </div>
 
         ))}
