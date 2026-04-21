@@ -15,7 +15,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "incremental": true,
     "module": "esnext",
     "baseUrl": ".",
@@ -34,10 +34,8 @@
     "**/*.ts",
     "**/*.tsx",
     "next-env.d.ts",
-    ".next/types/**/*.ts",
-    "app/articles/page.js",
-    ".next/dev/types/**/*.ts"
-  ],
+    ".next/types/**/*.ts"
+, "app/articles/page.js"  ],
   "exclude": [
     "node_modules"
   ]

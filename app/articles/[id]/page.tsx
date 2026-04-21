@@ -15,9 +15,7 @@ export default async function ArticleDetailPage({ params }: PageProps) {
   try {
     // 必須の環境変数が設定されているか確認
     if (!process.env.MICROCMS_SERVICE_DOMAIN || !process.env.MICROCMS_API_KEY) {
-      // ビルド環境で環境変数が設定されていない場合は404を返してビルドを継続
-      console.warn("Missing MICROCMS_SERVICE_DOMAIN or MICROCMS_API_KEY in environment variables during build.");
-      notFound();
+      throw new Error("Missing MICROCMS_SERVICE_DOMAIN or MICROCMS_API_KEY in environment variables");
     }
 
     // microCMSから記事データを取得

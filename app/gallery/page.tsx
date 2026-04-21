@@ -7,7 +7,7 @@ import styles from "../../styles/page.module.css";
 
 type ImageData = {
   src: string;
-  id: string;
+
   title: string;
   description: string;
   src2: string;
@@ -24,11 +24,15 @@ type FilmData = {
   thumbnail: string; // サムネイル画像のURL
 };
 
+
+
+
+
 const GalleryPage = () => {
   const [selectedImage, setSelectedImage] = useState<ImageData | null>(null);
   const [activeTab, setActiveTab] = useState<"photos" | "films">("photos"); // 現在のタブを管理
   const [selectedFilm, setSelectedFilm] = useState<FilmData | null>(null);
-
+  
   useEffect(() => {
       if (selectedFilm) {
         document.body.style.overflow = "hidden"; // モーダル表示中はスクロールを防止
@@ -101,7 +105,6 @@ const GalleryPage = () => {
 
   const images: ImageData[] = [
     {
-      id: "toyohashi-1",
       src: "/images/image1.png",
       src2: "/images/image1-1.png",
       src3: "/images/image1-2.png",
@@ -114,7 +117,6 @@ const GalleryPage = () => {
       real_location: "豊橋駅前大通２丁目",
     },
     {
-      id: "toyohashi-2",
       src: "/images/image2.png",
       src2: "/images/image2-2.png",
       src3: "/images/image2-3.png",
@@ -128,7 +130,6 @@ const GalleryPage = () => {
     },
 
     {
-      id: "toyohashi-3",
       src: "/images/image3.png",
       src2: "/images/image3-2.png",
       src3: "/images/image3-3.png",
@@ -141,7 +142,6 @@ const GalleryPage = () => {
       real_location: "豊橋駅前大通２丁目",
     },
     {
-      id: "toyohashi-4",
       src: "/images/image4.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -155,7 +155,6 @@ const GalleryPage = () => {
     },
 
     {
-      id: "toyohashi-5",
       src: "/images/image5-2.jpeg",
       src2: "/images/image5.png",
       src3: "/images/image5-3.png",
@@ -169,7 +168,6 @@ const GalleryPage = () => {
     },
 
     {
-      id: "toyohashi-6",
       src: "/images/image6.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -183,7 +181,6 @@ const GalleryPage = () => {
     },
 
     {
-      id: "toyohashi-7",
       src: "/images/image7.jpeg",
       src2: "/images/image7-2.jpeg",
       src3: "/images/null.png",
@@ -197,7 +194,6 @@ const GalleryPage = () => {
     },
 
     {
-      id: "toyohashi-8",
       src: "/images/image8.jpeg",
       src2: "/images/image8-2.jpeg",
       src3: "/images/null.png",
@@ -211,7 +207,6 @@ const GalleryPage = () => {
     },
 
     {
-      id: "toyohashi-9",
       src: "/images/image9.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -225,7 +220,6 @@ const GalleryPage = () => {
     },
 
     {
-      id: "toyohashi-10",
       src: "/images/image10.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -243,7 +237,6 @@ const GalleryPage = () => {
 
   const images2: ImageData[] = [
     {
-      id: "architecture-1",
       src: "/images/2image1.jpeg",
       src2: "/images/2image1-2.jpeg",
       src3: "/images/null.png",
@@ -257,7 +250,6 @@ const GalleryPage = () => {
     },
 
     {
-      id: "architecture-2",
       src: "/images/2image2.jpeg",
       src2: "/images/2image2-2.jpeg",
       src3: "/images/null.png",
@@ -271,7 +263,6 @@ const GalleryPage = () => {
     },
 
     {
-      id: "architecture-3",
       src: "/images/2image3.jpeg",
       src2: "/images/2image3-2.jpeg",
       src3: "/images/2image3-3.jpeg",
@@ -285,7 +276,6 @@ const GalleryPage = () => {
     },
 
     {
-      id: "architecture-4",
       src: "/images/2image4.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -299,7 +289,6 @@ const GalleryPage = () => {
     },
 
     {
-      id: "architecture-5",
       src: "/images/2image5.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -317,7 +306,6 @@ const GalleryPage = () => {
 
   const images3: ImageData[] = [
     {
-      id: "original-1",
       src: "/images/3image1.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -330,7 +318,6 @@ const GalleryPage = () => {
     },
 
     {
-      id: "original-2",
       src: "/images/3image2.png",
       src2: "/images/3image2-2.jpeg",
       src3: "/images/3image2-3.jpeg",
@@ -343,7 +330,6 @@ const GalleryPage = () => {
     },
 
     {
-      id: "original-3",
       src: "/images/3image3.jpeg",
       src2: "/images/3image3-2.jpeg",
       src3: "/images/3image3-3.jpeg",
@@ -356,7 +342,6 @@ const GalleryPage = () => {
     },
 
     {
-      id: "original-4",
       src: "/images/3image4.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -369,7 +354,6 @@ const GalleryPage = () => {
     },
 
     {
-      id: "original-5",
       src: "/images/3image5.jpeg",
       src2: "/images/3image5-2.jpeg",
       src3: "/images/3image5-3.jpeg",
@@ -382,7 +366,6 @@ const GalleryPage = () => {
     },
 
     {
-      id: "original-6",
       src: "/images/3image6.jpeg",
       src2: "/images/null.png",
       src3: "/images/null.png",
@@ -395,7 +378,6 @@ const GalleryPage = () => {
     },
 
     {
-      id: "original-7",
       src: "/images/3image7.jpeg",
       src2: "/images/3image7-2.jpeg",
       src3: "/images/null.png",
@@ -476,7 +458,9 @@ const GalleryPage = () => {
           <div
             key={index}
             className={styles.galleryItem}
-            onClick={() => setSelectedImage(image)}
+            onClick={() => {
+              setSelectedImage(image); // 画像をクリックしたらモーダル表示して...
+            }}
           >
             <Image src={image.src} alt={image.title} width={300} height={300} />
           </div>
@@ -495,7 +479,9 @@ const GalleryPage = () => {
           <div
             key={index}
             className={styles.galleryItem_2}
-            onClick={() => setSelectedImage(image)}
+            onClick={() => {
+              setSelectedImage(image); // 画像をクリックしたらモーダル表示して...
+            }}
           >
             <Image src={image.src} alt={image.title} width={300} height={300} />
           </div>
@@ -515,7 +501,9 @@ const GalleryPage = () => {
           <div
             key={index}
             className={styles.galleryItem_3}
-            onClick={() => setSelectedImage(image)}
+            onClick={() => {
+              setSelectedImage(image); // 画像をクリックしたらモーダル表示して...
+            }}
           >
             <Image src={image.src} alt={image.title} width={300} height={300} />
           </div>
