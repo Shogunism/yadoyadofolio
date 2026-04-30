@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import PhotoSphereViewer from "photo-sphere-viewer";
 
 export default function Page360() {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -14,7 +13,10 @@ export default function Page360() {
     let cancelled = false;
     let initialized = false;
 
-    const initViewer = () => {
+    // photo-sphere-viewer を動的にインポート
+    let PhotoSphereViewer: any = null;
+
+    const initViewer = async () => {
       if (cancelled || initialized) return;
       if (!ref.current) return;
 
@@ -23,6 +25,12 @@ export default function Page360() {
 
       initialized = true;
       try {
+        // photo-sphere-viewer を動的にインポート
+        if (!PhotoSphereViewer) {
+          const module = await import("photo-sphere-viewer");
+          PhotoSphereViewer = module.default;
+        }
+
         // @ts-ignore
         viewer = new (PhotoSphereViewer as any).Viewer({
           container: ref.current,
@@ -38,7 +46,7 @@ export default function Page360() {
 
     const img = new Image();
     img.crossOrigin = "anonymous";
-    img.src = "/images/360/BH360.png";
+    img.src = "/images/360/B360.png";
 
     let ro: ResizeObserver | null = null;
 
