@@ -26,7 +26,7 @@ export default function Page360() {
         // @ts-ignore
         viewer = new (PhotoSphereViewer as any).Viewer({
           container: ref.current,
-          panorama: "/images/360/360.jpg",
+          panorama: "/images/360/BH360.png",
           navbar: false,
         });
         console.log("360 Viewer: initialized");
@@ -38,7 +38,7 @@ export default function Page360() {
 
     const img = new Image();
     img.crossOrigin = "anonymous";
-    img.src = "/images/360/360.jpg";
+    img.src = "/images/360/BH360.png";
 
     let ro: ResizeObserver | null = null;
 
