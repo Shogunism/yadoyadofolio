@@ -2,7 +2,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['images.microcms-assets.io'], // ← 必要な外部ドメイン
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.microcms-assets.io",
+        pathname: "/**",
+      },
+    ],
   },
   env: {
     MICROCMS_SERVICE_DOMAIN: process.env.MICROCMS_SERVICE_DOMAIN,
