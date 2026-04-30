@@ -9,6 +9,28 @@ type PageProps = {
   }>;
 };
 
+// 静的生成対象の記事を事前取得
+export async function generateStaticParams() {
+  try {
+    if (!process.env.MICROCMS_SERVICE_DOMAIN || !process.env.MICROCMS_API_KEY) {
+      console.warn("MICROCMS env vars not set, skipping static generation");
+      return [];
+    }
+    
+    const blogs = await client.getList({
+      endpoint: "blogs",
+      queries: { limit: 100 }, // 最大100件取得
+    });
+
+    return blogs.contents.map((blog: any) => ({
+      id: blog.id,
+    }));
+  } catch (error) {
+    console.error("Error generating static params:", error);
+    return [];
+  }
+}
+
 // 記事詳細ページのサーバーコンポーネント
 export default async function ArticleDetailPage({ params }: PageProps) {
   const resolvedParams = await params; // Promiseを解決
